@@ -1,657 +1,823 @@
-\<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Phani Srikanth | Portfolio</title>
-    
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Phani Srikanth Samayam</title>
+<meta name="description" content="Phani Srikanth Samayam — Programmer Analyst at Cognizant, B.Tech CSE, passionate about data-driven applications and enterprise systems."/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous"/>
+<style>
+/* ─── THEME TOKENS ──────────────────────────────────── */
+[data-theme="dark"]{
+  --bg:#060810;--bg2:#0c1020;--bg3:#111828;
+  --surf:rgba(255,255,255,.034);--surf2:rgba(255,255,255,.065);--surf3:rgba(255,255,255,.10);
+  --bord:rgba(255,255,255,.075);--bord-hi:rgba(94,234,212,.32);
+  --text:#dde6f5;--text2:#c4d0e8;--muted:#5a6b8a;--dim:#8090aa;
+  --hdr-bg:rgba(6,8,16,.88);
+  --shadow:rgba(0,0,0,.55);
+  --particle:94,234,212;
+  --noise-op:.28;
+}
+[data-theme="light"]{
+  --bg:#f5f7fc;--bg2:#eef1f8;--bg3:#e6eaf4;
+  --surf:rgba(0,0,0,.028);--surf2:rgba(0,0,0,.055);--surf3:rgba(0,0,0,.085);
+  --bord:rgba(0,0,0,.09);--bord-hi:rgba(13,148,136,.40);
+  --text:#0f1929;--text2:#2a3a55;--muted:#7a8ba8;--dim:#4a5a78;
+  --hdr-bg:rgba(245,247,252,.90);
+  --shadow:rgba(0,0,0,.12);
+  --particle:13,148,136;
+  --noise-op:.12;
+}
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-            },
-            colors: {
-                dark: '#0f172a', 
-                light: '#f8fafc',
-                primary: {
-                  DEFAULT: '#3b82f6',
-                  hover: '#2563eb'
-                }
-            }
-          }
-        }
-      }
-    </script>
+/* ─── ACCENT (same both themes) ── */
+:root{
+  --accent:#5eead4;--a2:#818cf8;--a3:#fbbf24;
+  --accent-d:#0d9488;
+  --fd:'Bricolage Grotesque',Georgia,serif;
+  --fb:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+}
+[data-theme="light"] .gr{background:linear-gradient(135deg,#0d9488 0%,#4f46e5 48%,#d97706 100%)!important;-webkit-background-clip:text!important;-webkit-text-fill-color:transparent!important;background-clip:text!important;}
+[data-theme="light"] .accent-text{color:var(--accent-d)!important;}
+[data-theme="light"] .sk.hi{background:rgba(13,148,136,.08)!important;border-color:rgba(13,148,136,.25)!important;color:var(--accent-d)!important;}
+[data-theme="light"] .sk:hover{border-color:rgba(13,148,136,.4)!important;color:var(--accent-d)!important;background:rgba(13,148,136,.07)!important;}
+[data-theme="light"] #prog{background:linear-gradient(90deg,#0d9488,#4f46e5,#d97706)!important;}
+[data-theme="light"] .btn-p{background:#0d9488!important;color:#fff!important;}
+[data-theme="light"] .btn-p:hover{box-shadow:0 12px 32px rgba(13,148,136,.28)!important;}
+[data-theme="light"] .img-glow{background:conic-gradient(from 0deg,#0d9488,#4f46e5,#d97706,#0d9488)!important;}
+[data-theme="light"] .tl::before{background:linear-gradient(to bottom,#0d9488,#4f46e5,transparent)!important;}
+[data-theme="light"] .hero-badge{background:rgba(13,148,136,.08)!important;border-color:rgba(13,148,136,.22)!important;color:#0d9488!important;}
+[data-theme="light"] .badge-dot{background:#0d9488!important;}
+[data-theme="light"] .badge-now{background:rgba(13,148,136,.1)!important;border-color:rgba(13,148,136,.28)!important;color:#0d9488!important;}
+[data-theme="light"] .pill i,[data-theme="light"] .tl-co,[data-theme="light"] .cert-card:hover .cert-nm,[data-theme="light"] .proj-link,[data-theme="light"] .tl-link:hover,[data-theme="light"] .c-link i,[data-theme="light"] .soc:hover{color:#0d9488!important;}
+[data-theme="light"] .sec-lbl{color:#0d9488!important;}
+[data-theme="light"] .cert-card:hover,[data-theme="light"] .tl-card:hover,[data-theme="light"] .soc:hover{border-color:rgba(13,148,136,.4)!important;}
+[data-theme="light"] .tl-desc li::before{color:#0d9488!important;}
+[data-theme="light"] #cnv{opacity:.18;}
+[data-theme="light"] body::after{opacity:var(--noise-op);}
+[data-theme="light"] .proj-card:hover{box-shadow:0 20px 60px rgba(0,0,0,.12),0 0 0 1px rgba(13,148,136,.06)!important;}
 
-    <style>
-      #cursor-spotlight { position: fixed; width: 600px; height: 600px; border-radius: 50%; pointer-events: none; z-index: 9999; background: radial-gradient(circle, rgba(96, 165, 250, 0.15), transparent 60%); opacity: 0; transition: opacity 0.3s ease-out, transform 0.3s ease-out; transform: translate(-50%, -50%) scale(0); }
-      body:hover #cursor-spotlight { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-      .blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.3; z-index: -1; }
-      .blob1 { width: 400px; height: 400px; top: -150px; left: -150px; background-color: #60a5fa; animation: move 20s infinite alternate; }
-      .blob2 { width: 300px; height: 300px; top: 20%; right: -100px; background-color: #818cf8; animation: move 25s infinite alternate-reverse; }
-      .blob3 { width: 350px; height: 350px; bottom: -150px; left: 20%; background-color: #a78bfa; animation: move 18s infinite alternate; }
-      @keyframes move { from { transform: translate(0, 0) scale(1); } to { transform: translate(100px, 50px) scale(1.2); } }
-      .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s cubic-bezier(0.6, 0.2, 0.4, 1), transform 0.8s cubic-bezier(0.6, 0.2, 0.4, 1); }
-      .reveal.visible { opacity: 1; transform: translateY(0); }
-      .nav-active { color: #3b82f6; font-weight: 700; }
-      .dark .nav-active { color: #60a5fa; }
-      .typing-cursor { display: inline-block; width: 2px; height: 1.25rem; background-color: #4b5563; animation: blink 1s infinite; }
-      .dark .typing-cursor { background-color: #d1d5db; }
-      @keyframes blink { 50% { opacity: 0; } }
-    </style>
+/* ─── RESET & BASE ─── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);font-size:16px;line-height:1.7;overflow-x:hidden;cursor:none;transition:background .35s ease,color .35s ease;}
+
+/* ─── LOADER ─── */
+#loader{position:fixed;inset:0;background:var(--bg);z-index:9000;display:flex;align-items:center;justify-content:center;animation:loaderOut .5s ease forwards;animation-delay:1.7s;pointer-events:none;}
+@keyframes loaderOut{to{opacity:0;visibility:hidden;}}
+.loader-name{font-family:var(--fd);font-size:clamp(2.2rem,7vw,4rem);font-weight:800;color:var(--text);overflow:hidden;line-height:1.1;letter-spacing:-.02em;}
+.loader-name span{display:inline-block;animation:lUp .55s cubic-bezier(.22,1,.36,1) both;}
+.loader-name span:nth-child(1){animation-delay:.04s}.loader-name span:nth-child(2){animation-delay:.10s}
+.loader-name span:nth-child(3){animation-delay:.16s}.loader-name span:nth-child(4){animation-delay:.22s}
+.loader-name span:nth-child(5){animation-delay:.28s}.loader-name span:nth-child(6){animation-delay:.34s}
+.loader-name span:nth-child(7){animation-delay:.40s}.loader-name span:nth-child(8){animation-delay:.46s}
+.loader-name span:nth-child(9){animation-delay:.52s}.loader-name span:nth-child(10){animation-delay:.58s}
+.loader-name span:nth-child(11){animation-delay:.64s}.loader-name span:nth-child(12){animation-delay:.70s}
+.loader-name span:nth-child(13){animation-delay:.76s}
+@keyframes lUp{from{transform:translateY(110%);opacity:0}to{transform:translateY(0);opacity:1}}
+.loader-bar{width:200px;height:1px;background:var(--bord);margin:.9rem auto 0;overflow:hidden;border-radius:1px;}
+.loader-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--a2));animation:lFill 1.4s cubic-bezier(.4,0,.2,1) forwards .06s;transform-origin:left;transform:scaleX(0);}
+@keyframes lFill{to{transform:scaleX(1)}}
+.loader-sub{font-size:.72rem;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-top:.7rem;text-align:center;animation:lUp .5s both;animation-delay:.9s;}
+
+/* ─── CURSOR ─── */
+#cur{position:fixed;width:10px;height:10px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .15s,height .15s,background .3s,opacity .2s;mix-blend-mode:screen;}
+#cur-ring{position:fixed;width:34px;height:34px;border:1.5px solid rgba(94,234,212,.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .22s,height .22s,border-color .3s;}
+[data-theme="light"] #cur{mix-blend-mode:normal;background:#0d9488;}
+[data-theme="light"] #cur-ring{border-color:rgba(13,148,136,.45);}
+@media(hover:none){#cur,#cur-ring{display:none}body{cursor:auto}}
+
+/* ─── SCROLL PROGRESS ─── */
+#prog{position:fixed;top:0;left:0;height:2.5px;background:linear-gradient(90deg,var(--accent),var(--a2),var(--a3));z-index:2000;width:0;box-shadow:0 0 6px var(--accent);transition:width .06s;}
+
+/* ─── NOISE TEXTURE ─── */
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:var(--noise-op);transition:opacity .35s;}
+
+/* ─── CANVAS ─── */
+#cnv{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.42;transition:opacity .35s;}
+
+/* ─── HEADER ─── */
+header{position:sticky;top:0;z-index:500;background:var(--hdr-bg);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-bottom:1px solid var(--bord);animation:hdrIn .5s ease both;animation-delay:1.95s;transition:background .35s,border-color .35s;}
+@keyframes hdrIn{from{transform:translateY(-100%);opacity:0}to{transform:translateY(0);opacity:1}}
+.hdr{max-width:1140px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;gap:1rem;}
+.logo{font-family:var(--fd);font-weight:800;font-size:1.18rem;color:var(--text);text-decoration:none;letter-spacing:-.01em;flex-shrink:0;}
+.logo em{color:var(--accent);font-style:normal;}
+[data-theme="light"] .logo em{color:#0d9488;}
+.nav-links{display:flex;align-items:center;gap:.1rem;}
+nav a{color:var(--muted);text-decoration:none;font-size:.84rem;font-weight:500;padding:.38rem .72rem;border-radius:7px;transition:color .18s,background .18s;white-space:nowrap;}
+nav a:hover,nav a.active{color:var(--text);background:var(--surf2);}
+nav a.active{color:var(--accent);}
+[data-theme="light"] nav a.active{color:#0d9488;}
+.nres{background:var(--surf)!important;border:1px solid var(--bord);color:var(--text)!important;border-radius:8px!important;padding:.38rem 1rem!important;margin-left:.4rem;transition:border-color .2s,background .2s!important;}
+.nres:hover{border-color:var(--bord-hi)!important;background:var(--surf2)!important;}
+.hdr-right{display:flex;align-items:center;gap:.5rem;}
+
+/* THEME TOGGLE */
+#theme-btn{
+  width:40px;height:40px;border-radius:10px;
+  background:var(--surf);border:1px solid var(--bord);
+  color:var(--text);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.95rem;transition:background .2s,border-color .2s,transform .2s,color .2s;
+  flex-shrink:0;
+}
+#theme-btn:hover{background:var(--surf2);border-color:var(--bord-hi);transform:rotate(18deg) scale(1.08);}
+
+/* MOB MENU */
+.mob-btn{display:none;background:var(--surf);border:1px solid var(--bord);color:var(--text);padding:.42rem .75rem;border-radius:8px;cursor:pointer;font-size:.82rem;font-family:var(--fb);align-items:center;gap:.4rem;white-space:nowrap;}
+.mob-drop{display:none;position:absolute;top:65px;right:1rem;background:var(--bg2);border:1px solid var(--bord);border-radius:13px;padding:.5rem;min-width:175px;z-index:600;box-shadow:0 24px 64px var(--shadow);}
+.mob-drop a{display:block;color:var(--muted);text-decoration:none;padding:.48rem .78rem;border-radius:8px;font-size:.84rem;transition:background .15s,color .15s;}
+.mob-drop a:hover{background:var(--surf2);color:var(--text);}
+.mob-drop.open{display:block;}
+
+/* ─── MAIN LAYOUT ─── */
+main{max-width:1140px;margin:0 auto;padding:0 2rem;position:relative;z-index:1;}
+section{padding:6rem 0;}
+
+/* ─── SECTION HEADINGS ─── */
+.sec-lbl{font-family:var(--fb);font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.55rem;}
+.sec-ttl{font-family:var(--fd);font-size:clamp(1.85rem,3.4vw,2.5rem);font-weight:800;color:var(--text);letter-spacing:-.015em;margin-bottom:2.75rem;line-height:1.13;}
+.sec-ctr{text-align:center;}
+.sec-ctr .sec-ttl{margin-bottom:.5rem;}
+.sec-sub{color:var(--muted);font-size:.95rem;max-width:500px;margin:0 auto 3rem;line-height:1.72;}
+
+/* ─── REVEAL ANIMATIONS ─── */
+.rev{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1);}
+.rev.on{opacity:1;transform:translateY(0);}
+.rev-l{opacity:0;transform:translateX(-34px);transition:opacity .72s cubic-bezier(.22,1,.36,1),transform .72s cubic-bezier(.22,1,.36,1);}
+.rev-l.on{opacity:1;transform:translateX(0);}
+.rev-r{opacity:0;transform:translateX(34px);transition:opacity .72s cubic-bezier(.22,1,.36,1),transform .72s cubic-bezier(.22,1,.36,1);}
+.rev-r.on{opacity:1;transform:translateX(0);}
+.rev-s{opacity:0;transform:scale(.93);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1);}
+.rev-s.on{opacity:1;transform:scale(1);}
+
+/* ─── HERO ─── */
+#hero{min-height:92vh;display:flex;flex-direction:column;justify-content:center;padding:3.5rem 0;}
+.hero-badge{display:inline-flex;align-items:center;gap:.55rem;background:rgba(94,234,212,.07);border:1px solid rgba(94,234,212,.18);border-radius:100px;padding:.35rem 1.1rem;font-size:.8rem;font-weight:500;color:var(--accent);margin-bottom:1.75rem;animation:fadeUp .6s both;animation-delay:2.05s;opacity:0;}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pdot 2s infinite;}
+@keyframes pdot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.45;transform:scale(.7);}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hero-greet{font-family:var(--fb);font-size:clamp(1rem,2.4vw,1.2rem);font-weight:500;color:var(--muted);margin-bottom:.25rem;animation:fadeUp .5s both;animation-delay:2.15s;opacity:0;}
+.hero-name{font-family:var(--fd);font-weight:800;font-size:clamp(2.9rem,8vw,5.8rem);letter-spacing:-.025em;line-height:.98;color:var(--text);margin-bottom:.4rem;animation:fadeUp .65s cubic-bezier(.22,1,.36,1) both;animation-delay:2.25s;opacity:0;}
+.gr{background:linear-gradient(135deg,#5eead4 0%,#818cf8 48%,#fbbf24 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200% auto;animation:gShift 5s linear infinite 2.9s;}
+@keyframes gShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.hero-role-wrap{display:flex;align-items:center;gap:.5rem;margin-bottom:1.5rem;animation:fadeUp .5s both;animation-delay:2.38s;opacity:0;min-height:2rem;}
+.hero-role-pre{font-family:var(--fd);font-size:clamp(.9rem,1.9vw,1.15rem);font-weight:600;color:var(--muted);}
+#typewriter{font-family:var(--fd);font-size:clamp(.9rem,1.9vw,1.15rem);font-weight:700;color:var(--accent);min-width:1ch;}
+[data-theme="light"] #typewriter{color:#0d9488;}
+.cursor-blink{display:inline-block;width:2px;height:1.1em;background:var(--accent);vertical-align:text-bottom;margin-left:1px;animation:blink .9s infinite;}
+[data-theme="light"] .cursor-blink{background:#0d9488;}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+.hero-sub{font-size:1.01rem;color:var(--muted);max-width:510px;margin-bottom:2.25rem;font-weight:400;line-height:1.8;animation:fadeUp .5s both;animation-delay:2.5s;opacity:0;}
+.hero-ctas{display:flex;gap:.85rem;flex-wrap:wrap;animation:fadeUp .5s both;animation-delay:2.6s;opacity:0;}
+
+.btn-p{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:#060810;font-family:var(--fb);font-weight:700;font-size:.88rem;padding:.78rem 1.55rem;border-radius:10px;text-decoration:none;transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden;z-index:0;}
+.btn-p::before{content:'';position:absolute;inset:0;background:rgba(255,255,255,.16);transform:translateX(-100%);transition:transform .38s ease;z-index:-1;}
+.btn-p:hover::before{transform:translateX(0);}
+.btn-p:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(94,234,212,.3);}
+.btn-s{display:inline-flex;align-items:center;gap:.5rem;background:var(--surf);color:var(--text);font-family:var(--fb);font-weight:700;font-size:.88rem;padding:.78rem 1.55rem;border-radius:10px;border:1px solid var(--bord);text-decoration:none;transition:border-color .2s,background .2s,transform .2s,box-shadow .2s;}
+.btn-s:hover{border-color:var(--bord-hi);background:var(--surf2);transform:translateY(-3px);box-shadow:0 8px 24px var(--shadow);}
+
+.hero-stats{display:flex;gap:2.6rem;margin-top:3.25rem;padding-top:2.2rem;border-top:1px solid var(--bord);flex-wrap:wrap;animation:fadeUp .5s both;animation-delay:2.72s;opacity:0;}
+.stat-n{font-family:var(--fd);font-size:2.05rem;font-weight:800;color:var(--text);letter-spacing:-.015em;}
+.stat-l{font-size:.75rem;color:var(--muted);margin-top:.08rem;line-height:1.4;}
+
+/* ─── ABOUT ─── */
+.about-g{display:grid;grid-template-columns:auto 1fr;gap:3.75rem;align-items:center;}
+.img-wrap{position:relative;flex-shrink:0;}
+.img-wrap img{width:210px;height:210px;border-radius:20px;object-fit:cover;display:block;position:relative;z-index:1;border:1px solid var(--bord);transition:transform .4s ease,box-shadow .45s ease;}
+.img-wrap:hover img{transform:scale(1.04) rotate(-1.5deg);box-shadow:0 24px 60px rgba(94,234,212,.14);}
+[data-theme="light"] .img-wrap:hover img{box-shadow:0 20px 50px rgba(13,148,136,.18);}
+.img-glow{position:absolute;inset:-2px;border-radius:22px;background:conic-gradient(from 0deg,var(--accent),var(--a2),var(--a3),var(--accent));z-index:0;padding:2px;-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:gSpin 5s linear infinite;}
+@keyframes gSpin{to{filter:hue-rotate(360deg)}}
+.about-text p{color:var(--muted);margin-bottom:1.15rem;font-size:.97rem;line-height:1.82;}
+.about-text strong{color:var(--text);font-weight:600;}
+.pills{display:flex;gap:.65rem;flex-wrap:wrap;margin-top:1.4rem;}
+.pill{display:inline-flex;align-items:center;gap:.38rem;background:var(--surf);border:1px solid var(--bord);border-radius:8px;padding:.34rem .75rem;font-size:.78rem;color:var(--dim);font-weight:500;transition:border-color .2s,color .2s,background .2s;}
+.pill:hover{border-color:var(--bord-hi);color:var(--accent);background:var(--surf2);}
+[data-theme="light"] .pill:hover{border-color:rgba(13,148,136,.4);color:#0d9488;}
+.pill i{font-size:.68rem;color:var(--accent);}
+[data-theme="light"] .pill i{color:#0d9488;}
+
+/* ─── SKILLS ─── */
+.skills-cats{display:flex;flex-direction:column;gap:2rem;max-width:900px;margin:0 auto;}
+.skill-cat-label{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:.7rem;}
+.skill-row{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;}
+.sk{background:var(--surf);border:1px solid var(--bord);border-radius:8px;padding:.5rem 1rem;font-size:.83rem;color:var(--dim);font-weight:500;cursor:default;opacity:0;transform:translateY(12px) scale(.95);transition:opacity .5s,transform .5s,border-color .22s,color .22s,background .22s,box-shadow .22s;}
+.sk.on{opacity:1;transform:translateY(0) scale(1);}
+.sk:hover{border-color:var(--bord-hi);color:var(--accent);background:rgba(94,234,212,.055);transform:translateY(-3px) scale(1.04);box-shadow:0 6px 20px rgba(94,234,212,.1);}
+.sk.hi{background:rgba(94,234,212,.055);border-color:rgba(94,234,212,.24);color:var(--accent);}
+
+/* ─── TIMELINE ─── */
+.tl{position:relative;max-width:740px;margin:0 auto;}
+.tl::before{content:'';position:absolute;left:22px;top:4px;bottom:4px;width:1px;background:linear-gradient(to bottom,var(--accent),var(--a2),transparent);opacity:.2;}
+.tl-item{position:relative;padding-left:62px;margin-bottom:2rem;}
+.tl-item:last-child{margin-bottom:0;}
+.tl-dot{position:absolute;left:9px;top:8px;width:27px;height:27px;border-radius:50%;background:var(--bg2);border:1px solid var(--bord);display:flex;align-items:center;justify-content:center;font-size:.6rem;transition:border-color .28s,transform .28s,box-shadow .28s,background .28s;z-index:1;}
+.tl-item:hover .tl-dot{border-color:var(--bord-hi);transform:scale(1.22);box-shadow:0 0 14px rgba(94,234,212,.24);background:var(--surf2);}
+.tl-card{background:var(--surf);border:1px solid var(--bord);border-radius:14px;padding:1.45rem;transition:border-color .26s,background .26s,transform .26s,box-shadow .26s;position:relative;overflow:hidden;}
+.tl-card::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.028) 50%,transparent 62%);transform:translateX(-100%);transition:transform .55s ease;pointer-events:none;}
+.tl-card:hover::after{transform:translateX(100%);}
+.tl-card:hover{border-color:var(--bord-hi);background:var(--surf2);transform:translateX(5px);box-shadow:0 14px 48px var(--shadow);}
+.tl-role{font-family:var(--fd);font-size:1.02rem;font-weight:700;color:var(--text);margin-bottom:.2rem;}
+.tl-co{font-size:.87rem;color:var(--accent);font-weight:600;margin-bottom:.18rem;}
+.tl-date{font-size:.75rem;color:var(--muted);margin-bottom:.72rem;}
+.tl-desc{font-size:.84rem;color:var(--muted);line-height:1.65;}
+.tl-desc li{list-style:none;padding-left:1.1rem;position:relative;margin-bottom:.28rem;}
+.tl-desc li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:.68rem;top:.1rem;}
+.badge-now{display:inline-block;background:rgba(94,234,212,.1);border:1px solid rgba(94,234,212,.28);color:var(--accent);font-size:.64rem;font-weight:700;padding:.1rem .45rem;border-radius:100px;letter-spacing:.07em;text-transform:uppercase;margin-left:.5rem;vertical-align:middle;animation:pnow 2.2s ease infinite;}
+@keyframes pnow{0%,100%{box-shadow:0 0 0 0 rgba(94,234,212,.35);}50%{box-shadow:0 0 0 5px rgba(94,234,212,0);}}
+.tl-link{display:inline-flex;align-items:center;gap:.3rem;font-size:.76rem;color:var(--muted);text-decoration:none;margin-top:.72rem;transition:color .2s;}
+.tl-link:hover{color:var(--accent);}
+
+/* ─── PROJECTS ─── */
+.proj-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.25rem;}
+.proj-card{background:var(--surf);border:1px solid var(--bord);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .28s,box-shadow .32s;will-change:transform;}
+.proj-card:hover{border-color:var(--bord-hi);box-shadow:0 24px 70px rgba(0,0,0,.4),0 0 0 1px rgba(94,234,212,.04);}
+.proj-img-wrap{overflow:hidden;height:200px;border-bottom:1px solid var(--bord);background:var(--bg3);}
+.proj-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .48s ease;}
+.proj-card:hover .proj-img{transform:scale(1.06);}
+.proj-ph{height:200px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--bord);position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(94,234,212,.055),rgba(129,140,248,.055));}
+.proj-ph::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(94,234,212,.08),transparent 70%);animation:phPulse 3.2s ease infinite;}
+@keyframes phPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.3);}}
+.proj-body{padding:1.4rem;flex:1;display:flex;flex-direction:column;}
+.proj-ttl{font-family:var(--fd);font-size:1rem;font-weight:700;color:var(--text);margin-bottom:.42rem;}
+.proj-desc{font-size:.83rem;color:var(--muted);line-height:1.65;flex:1;margin-bottom:.9rem;}
+.proj-tags{display:flex;gap:.32rem;flex-wrap:wrap;margin-bottom:.9rem;}
+.tag{background:var(--surf2);border:1px solid var(--bord);color:var(--muted);font-size:.7rem;font-weight:600;padding:.18rem .55rem;border-radius:6px;transition:border-color .2s,color .2s;}
+.proj-card:hover .tag{border-color:var(--bord-hi);color:var(--dim);}
+.proj-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.81rem;color:var(--accent);text-decoration:none;font-weight:600;transition:gap .18s;}
+[data-theme="light"] .proj-link{color:#0d9488;}
+.proj-link:hover{gap:.6rem;}
+
+/* ─── CERTIFICATIONS ─── */
+.certs-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(278px,1fr));gap:.95rem;}
+.cert-card{display:flex;align-items:flex-start;gap:.95rem;background:var(--surf);border:1px solid var(--bord);border-radius:13px;padding:1.2rem;text-decoration:none;transition:border-color .24s,background .24s,transform .24s,box-shadow .24s;position:relative;overflow:hidden;}
+.cert-card::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.028) 50%,transparent 62%);transform:translateX(-100%);transition:transform .5s;pointer-events:none;}
+.cert-card:hover::after{transform:translateX(100%);}
+.cert-card:hover{border-color:var(--bord-hi);background:var(--surf2);transform:translateY(-3px);box-shadow:0 10px 36px var(--shadow);}
+.cert-ico{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;border:1px solid var(--bord);}
+.cert-nm{font-size:.87rem;font-weight:600;color:var(--text);margin-bottom:.17rem;line-height:1.3;transition:color .2s;}
+.cert-by{font-size:.74rem;color:var(--muted);}
+
+/* ─── COMPETITIONS ─── */
+.comp-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:.95rem;}
+.comp-card{background:var(--surf);border:1px solid var(--bord);border-radius:14px;padding:1.5rem;text-align:center;transition:border-color .24s,transform .26s,box-shadow .26s;display:flex;flex-direction:column;align-items:center;}
+.comp-card:hover{border-color:var(--bord-hi);transform:translateY(-4px);box-shadow:0 16px 50px var(--shadow);}
+.comp-ico{font-size:2.1rem;margin-bottom:.9rem;}
+.comp-nm{font-family:var(--fd);font-size:.9rem;font-weight:700;color:var(--text);margin-bottom:.3rem;}
+.comp-desc{font-size:.79rem;color:var(--muted);flex:1;margin-bottom:1.2rem;line-height:1.5;}
+
+/* ─── PROFILES ─── */
+.profs-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:.95rem;max-width:680px;margin:0 auto;}
+.prof-card{display:flex;align-items:center;gap:.95rem;background:var(--surf);border:1px solid var(--bord);border-radius:12px;padding:.95rem 1.2rem;text-decoration:none;transition:border-color .2s,background .2s,transform .2s;}
+.prof-card:hover{border-color:var(--bord-hi);background:var(--surf2);transform:translateY(-3px);}
+.p-nm{font-size:.88rem;font-weight:600;color:var(--text);margin-bottom:.1rem;}
+.p-st{font-size:.76rem;color:var(--muted);}
+
+/* ─── LANGUAGES ─── */
+.lang-list{max-width:490px;margin:0 auto;display:flex;flex-direction:column;gap:.7rem;}
+.lang-item{display:flex;align-items:center;gap:.95rem;background:var(--surf);border:1px solid var(--bord);border-radius:12px;padding:.95rem 1.2rem;transition:border-color .2s,transform .2s;}
+.lang-item:hover{border-color:var(--bord-hi);transform:translateX(5px);}
+.lang-ico{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:700;flex-shrink:0;}
+.lang-nm{font-weight:600;color:var(--text);font-size:.94rem;}
+.lang-lv{font-size:.77rem;color:var(--muted);}
+
+/* ─── HOBBIES ─── */
+.hob-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(124px,1fr));gap:.7rem;max-width:680px;margin:0 auto;}
+.hob{background:var(--surf);border:1px solid var(--bord);border-radius:12px;padding:1.2rem .9rem;text-align:center;transition:border-color .2s,transform .25s,background .2s,box-shadow .25s;}
+.hob:hover{border-color:var(--bord-hi);transform:translateY(-4px) scale(1.04);background:var(--surf2);box-shadow:0 10px 30px var(--shadow);}
+.hob-ico{font-size:1.5rem;margin-bottom:.42rem;}
+.hob-n{font-size:.79rem;font-weight:600;color:var(--dim);}
+
+/* ─── CONTACT ─── */
+.contact-in{max-width:580px;margin:0 auto;}
+.c-links{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:2.4rem;}
+.c-link{display:inline-flex;align-items:center;gap:.55rem;text-decoration:none;color:var(--muted);font-size:.93rem;font-weight:500;transition:color .2s;}
+.c-link:hover{color:var(--text);}
+.c-link i{color:var(--accent);}
+.socials{display:flex;justify-content:center;gap:.8rem;}
+.soc{display:flex;align-items:center;justify-content:center;width:50px;height:50px;background:var(--surf);border:1px solid var(--bord);border-radius:12px;color:var(--muted);text-decoration:none;font-size:1.08rem;transition:border-color .2s,color .2s,transform .2s,background .2s,box-shadow .2s;}
+.soc:hover{border-color:var(--bord-hi);color:var(--accent);transform:translateY(-4px) scale(1.08);background:var(--surf2);box-shadow:0 8px 24px rgba(94,234,212,.14);}
+
+/* ─── FOOTER ─── */
+footer{border-top:1px solid var(--bord);padding:1.5rem 2rem;text-align:center;color:var(--muted);font-size:.79rem;position:relative;z-index:1;}
+footer a{color:var(--muted);text-decoration:none;transition:color .2s;}
+footer a:hover{color:var(--accent);}
+
+/* ─── BACK TO TOP ─── */
+#btt{position:fixed;bottom:2rem;right:2rem;width:46px;height:46px;background:var(--surf);border:1px solid var(--bord);border-radius:12px;color:var(--muted);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .22s;opacity:0;pointer-events:none;z-index:50;font-size:.88rem;}
+#btt.show{opacity:1;pointer-events:auto;}
+#btt:hover{border-color:var(--bord-hi);color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 24px rgba(94,234,212,.13);}
+
+/* ─── DIVIDER ─── */
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--bord),transparent);margin:0;}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:800px){
+  .nav-links{display:none;} .mob-btn{display:flex;}
+  .about-g{grid-template-columns:1fr;text-align:center;}
+  .img-wrap{display:flex;justify-content:center;}
+  section{padding:4.5rem 0;} .proj-g{grid-template-columns:1fr;}
+  .hero-stats{gap:1.5rem;}
+  body{cursor:auto;} #cur,#cur-ring{display:none;}
+}
+@media(max-width:480px){main{padding:0 1.1rem;}.hdr{padding:0 1.1rem;}}
+</style>
 </head>
-<body class="bg-light dark:bg-dark text-gray-800 dark:text-gray-300 font-sans antialiased selection:bg-blue-500/30 overflow-x-hidden">
-    
-    <div id="cursor-spotlight"></div>
-    <div class="relative min-h-screen">
-        <div class="blob blob1"></div>
-        <div class="blob blob2"></div>
-        <div class="blob blob3"></div>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div style="text-align:center">
+    <div class="loader-name">
+      <span>P</span><span>h</span><span>a</span><span>n</span><span>i</span>&nbsp;<span>S</span><span>r</span><span>i</span><span>k</span><span>a</span><span>n</span><span>t</span><span>h</span>
     </div>
-    
-    <div class="absolute top-0 left-0 w-full">
-        <header class="sticky top-0 z-50 bg-white/30 dark:bg-slate-900/30 backdrop-blur-xl border-b border-white/20 dark:border-slate-800/20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-16">
-            <div class="flex-shrink-0">
-                <a href="#" class="text-xl font-bold text-gray-900 dark:text-white">Phani Srikanth</a>
-            </div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+    <div class="loader-sub">Software Engineer · India</div>
+  </div>
+</div>
 
-            <div class="flex items-center gap-4">
-                <div class="relative">
-                    <button id="menu-button" type="button" class="inline-flex items-center gap-2 justify-center rounded-md bg-gray-200/80 dark:bg-gray-700/80 px-4 py-2 text-sm font-medium text-gray-900 dark:text-white hover:bg-gray-300/80 dark:hover:bg-gray-600/80">
-                        Menu
-                        <i class="fa-solid fa-chevron-down -mr-1 h-5 w-5"></i>
-                    </button>
+<!-- CUSTOM CURSOR -->
+<div id="cur"></div>
+<div id="cur-ring"></div>
 
-                    <div id="menu-dropdown" class="hidden absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white/80 dark:bg-slate-800/80 backdrop-blur-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu">
-                        <div class="py-1" role="none">
-                            <a href="#about" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200/60 dark:hover:bg-gray-700/60">About</a>
-                            <a href="#skills" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200/60 dark:hover:bg-gray-700/60">Skills</a>
-                            <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200/60 dark:hover:bg-gray-700/60">Projects</a>
-                            <a href="#experience" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200/60 dark:hover:bg-gray-700/60">Experience</a>
-                            <a href="#education" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200/60 dark:hover:bg-gray-700/60">Education</a>
-                            <a href="#competitions" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200/60 dark:hover:bg-gray-700/60">Competitions</a>
-                            <a href="#certifications" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200/60 dark:hover:bg-gray-700/60">Certifications</a>
-                            <a href="#languages" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200/60 dark:hover:bg-gray-700/60">Languages</a>
-                            <a href="#hobbies" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200/60 dark:hover:bg-gray-700/60">Hobbies</a>
-                            <a href="#contact" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-200/60 dark:hover:bg-gray-700/60">Contact</a>
-                        </div>
-                    </div>
-                </div>
+<!-- SCROLL PROGRESS -->
+<div id="prog"></div>
 
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200/50 dark:hover:bg-gray-700/50">
-                    <i id="theme-toggle-dark-icon" class="fa-solid fa-moon text-lg hidden"></i>
-                    <i id="theme-toggle-light-icon" class="fa-solid fa-sun text-lg hidden"></i>
-                </button>
+<!-- PARTICLE CANVAS -->
+<canvas id="cnv"></canvas>
 
-                <a href="https://drive.google.com/file/d/1QlpKB0WL9_ofY7bRYkdZ1aIbMD7rNvib/view?usp=drive_link" target="_blank" class="hidden sm:inline-block bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-300 dark:hover:bg-gray-600 transition-all hover:scale-105 shadow-md">
-                    My Resume
-                </a>
-            </div>
-        </div>
+<!-- HEADER -->
+<header>
+  <div class="hdr">
+    <a href="#" class="logo">Phani<em>.</em></a>
+    <nav>
+      <div class="nav-links" id="nav-links">
+        <a href="#about" class="nav-a">About</a>
+        <a href="#experience" class="nav-a">Experience</a>
+        <a href="#projects" class="nav-a">Projects</a>
+        <a href="#skills" class="nav-a">Skills</a>
+        <a href="#certifications" class="nav-a">Certs</a>
+        <a href="#contact" class="nav-a">Contact</a>
+        <a href="https://drive.google.com/file/d/1QlpKB0WL9_ofY7bRYkdZ1aIbMD7rNvib/view?usp=drive_link" target="_blank" class="nres nav-a">Resume ↗</a>
+      </div>
+    </nav>
+    <div class="hdr-right">
+      <button id="theme-btn" title="Toggle theme" aria-label="Toggle theme">🌙</button>
+      <button class="mob-btn" id="mob-btn">Menu <i class="fa-solid fa-chevron-down" style="font-size:.62rem"></i></button>
     </div>
+  </div>
+  <div class="mob-drop" id="mob-drop">
+    <a href="#about">About</a><a href="#skills">Skills</a>
+    <a href="#projects">Projects</a><a href="#experience">Experience</a>
+    <a href="#education">Education</a><a href="#certifications">Certifications</a>
+    <a href="#competitions">Competitions</a><a href="#contact">Contact</a>
+    <a href="https://drive.google.com/file/d/1QlpKB0WL9_ofY7bRYkdZ1aIbMD7rNvib/view?usp=drive_link" target="_blank">Resume ↗</a>
+  </div>
 </header>
 
-        <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+<main>
 
-            <section id="hero" class="text-center min-h-[60vh] flex flex-col justify-center">
-                <h1 class="text-5xl md:text-7xl font-black mb-4 bg-gradient-to-r from-blue-600 via-sky-500 to-blue-700 dark:from-blue-400 dark:via-sky-400 dark:to-blue-500 text-transparent bg-clip-text">
-                    Hi, I'm Phani Srikanth
-                </h1>
-                <p id="subtitle" class="text-lg md:text-xl max-w-3xl mx-auto text-gray-600 dark:text-gray-400 mb-8 h-8">
-                    A passionate Computer Science graduate dedicated to building innovative solutions.
-                </p>
-                <div class="flex justify-center gap-4 mt-4">
-                     <a href="#contact" class="bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-all transform hover:scale-105 shadow-lg">
-                        Get in Touch
-                    </a>
-                     <a href="#projects" class="bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-all transform hover:scale-105 shadow-lg">
-                        View My Work
-                    </a>
-                </div>
-            </section>
-
-            <section id="about" class="reveal py-20">
-                <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">About Me</h2>
-                <div class="flex flex-col md:flex-row items-center gap-12">
-                    <div class="flex-shrink-0">
-                       <img src="https://raw.githubusercontent.com/phanisrikanth9/Srikanth-s-Portfolio/main/189kb(more%20upper).png" alt="Phani Srikanth" class="w-48 h-48 rounded-full object-cover shadow-lg ring-4 ring-white/20">
-
-                    </div>
-                    <div class="text-center md:text-left text-lg text-gray-600 dark:text-gray-400 space-y-4 leading-relaxed">
-                        <p>I am a recent Computer Science graduate from the Sreenidhi Institute of Science and Technology, holding a strong foundation in problem-solving, Data Structures, and Algorithms. My academic journey culminated in a successful Programmer Analyst internship at Cognizant during my final semester.</p>
-                        <p>During my internship, I gained direct exposure to enterprise-level systems, developing practical skills in SAP and utilizing SQL for complex data management and analysis. As a quick learner with a collaborative spirit, I am now eager to secure a full-time engineering role where I can contribute to impactful software and grow as a developer.</p>
-                    </div>
-                </div>
-            </section>
-          <section id="education" class="reveal py-20">
-    <h2 class="text-3xl font-bold text-center mb-16 text-gray-900 dark:text-white">Education</h2>
-    
-    <div class="relative max-w-2xl mx-auto border-l-2 border-primary-DEFAULT/30 pl-8">
-
-        <div class="timeline-item mb-16 relative">
-            <div class="absolute -left-[42px] top-1 flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700 ring-4 ring-light dark:ring-dark">
-                <i class="fa-solid fa-university text-lg text-blue-500"></i>
-            </div>
-            <h3 class="text-lg font-bold text-gray-900 dark:text-white">Bachelor of Technology, CSE</h3>
-            <p class="font-medium text-gray-700 dark:text-gray-300">Sreenidhi Institute of Science and Technology</p>
-            <p class="text-sm text-gray-500 dark:text-gray-400 flex justify-between">
-                <span>2021 - 2025</span>
-                <span>8.25 CGPA</span>
-            </p>
-        </div>
-
-        <div class="timeline-item mb-16 relative">
-            <div class="absolute -left-[42px] top-1 flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700 ring-4 ring-light dark:ring-dark">
-                <i class="fa-solid fa-book-open-reader text-lg text-green-500"></i>
-            </div>
-            <h3 class="text-lg font-bold text-gray-900 dark:text-white">Intermediate</h3>
-            <p class="font-medium text-gray-700 dark:text-gray-300">Sri Chaitanya Junior Kalasala</p>
-            <p class="text-sm text-gray-500 dark:text-gray-400 flex justify-between">
-                <span>2019 - 2021</span>
-                <span>92.4%</span>
-            </p>
-        </div>
-
-        <div class="timeline-item relative">
-            <div class="absolute -left-[42px] top-1 flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700 ring-4 ring-light dark:ring-dark">
-                <i class="fa-solid fa-school text-lg text-orange-500"></i>
-            </div>
-            <h3 class="text-lg font-bold text-gray-900 dark:text-white">SSC</h3>
-            <p class="font-medium text-gray-700 dark:text-gray-300">Dr KKR'S Gowtham Concept High School</p>
-            <p class="text-sm text-gray-500 dark:text-gray-400 flex justify-between">
-                <span>2018 - 2019</span>
-                <span>90%</span>
-            </p>
-        </div>
-
-    </div>
-</section>
-                 <section id="skills" class="reveal py-20">
-                <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">Technical Skills</h2>
-                <div id="skills-container" class="flex flex-wrap justify-center gap-3 md:gap-4 max-w-4xl mx-auto">
-                    </div>
-            </section>
-          <section id="projects" class="reveal py-20">
-    <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">Featured Projects</h2>
-    <div class="grid md:grid-cols-2 gap-10">
-
-        <div class="bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:shadow-yellow-500/20 backdrop-blur-md">
-      <img src="https://raw.githubusercontent.com/phanisrikanth9/Srikanth-s-Portfolio/main/Gemini_Generated_Image_opbwz7opbwz7opbw.png" alt="Visual Privacy Risk Detection" class="w-full h-56 object-cover">
-
-
-            <div class="p-6">
-                <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Visual Privacy Risk Detection</h3>
-                <p class="text-gray-600 dark:text-gray-400 mb-4">A System that automatically analyzes images for sensitive content.</p>
-                <div class="flex gap-2 mb-4">
-                    <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">Python</span>
-                    <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">CNN</span>
-                </div>
-                <div class="flex gap-4 mt-5">
-                    <a href="https://github.com/phanisrikanth9/sensitive_image_detection" target="_blank" class="text-primary-DEFAULT dark:text-blue-400 font-semibold hover:underline">View Source <i class="fab fa-github ml-1"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:shadow-blue-500/20 backdrop-blur-md">
-            <img src="https://images.unsplash.com/photo-1574267432553-4b4628081c31?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600" alt="Movie Recommendation System" class="w-full h-56 object-cover">
-            <div class="p-6">
-                <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Movie Recommendation System</h3>
-                <p class="text-gray-600 dark:text-gray-400 mb-4">A content-based recommendation system that suggests movies to users based on their watching history and preferences.</p>
-                <div class="flex gap-2 mb-4">
-                    <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">Python</span>
-                    <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Scikit-learn</span>
-                </div>
-                <div class="flex gap-4 mt-5">
-                    <a href="https://github.com/phanisrikanth9/Movie-Recommendation-System" target="_blank" class="text-primary-DEFAULT dark:text-blue-400 font-semibold hover:underline">View Source <i class="fab fa-github ml-1"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:shadow-yellow-500/20 backdrop-blur-md">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600" alt="Data Science Dashboard" class="w-full h-56 object-cover">
-            <div class="p-6">
-                <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Data Science Dashboard</h3>
-                <p class="text-gray-600 dark:text-gray-400 mb-4">An interactive dashboard for visualizing complex datasets, providing key insights and analytics at a glance.</p>
-                <div class="flex gap-2 mb-4">
-                    <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">Python</span>
-                    <span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">Plotly</span>
-                </div>
-                <div class="flex gap-4 mt-5">
-                    <a href="https://github.com/phanisrikanth9/Analyzing-Stock-Performance-and-Building-a-Dashboard" target="_blank" class="text-primary-DEFAULT dark:text-blue-400 font-semibold hover:underline">View Source <i class="fab fa-github ml-1"></i></a>
-                </div>
-            </div>
-        </div>
-        
-    </div>
+<!-- ══════════ HERO ══════════ -->
+<section id="hero">
+  <div class="hero-badge"><span class="badge-dot"></span>Open to Opportunities</div>
+  <div class="hero-greet">Hi there, I'm</div>
+  <div class="hero-name"><span class="gr">Phani Srikanth.</span></div>
+  <div class="hero-role-wrap">
+    <span class="hero-role-pre">Currently </span>
+    <span id="typewriter"></span><span class="cursor-blink"></span>
+  </div>
+  <p class="hero-sub">A Computer Science engineer passionate about building data-driven applications, enterprise systems, and elegant software that makes an impact.</p>
+  <div class="hero-ctas">
+    <a href="#projects" class="btn-p"><i class="fa-solid fa-arrow-down"></i> View My Work</a>
+    <a href="#contact" class="btn-s"><i class="fa-solid fa-paper-plane"></i> Get in Touch</a>
+  </div>
+  <div class="hero-stats">
+    <div><div class="stat-n" data-target="200">0</div><div class="stat-l">LeetCode<br>Problems</div></div>
+    <div><div class="stat-n" data-target="400">0</div><div class="stat-l">CodeChef<br>Problems</div></div>
+    <div><div class="stat-n" data-target="825" data-dec="2">0</div><div class="stat-l">CGPA<br>B.Tech CSE</div></div>
+    <div><div class="stat-n" data-target="8">0</div><div class="stat-l">Certifications<br>&amp; Badges</div></div>
+  </div>
 </section>
 
-       <section id="experience" class="reveal py-20">
-    <h2 class="text-3xl font-bold text-center mb-16 text-gray-900 dark:text-white">Work Experience</h2>
-    <div class="relative max-w-2xl mx-auto border-l-2 border-primary-DEFAULT/30 pl-8">
-
-        <div class="timeline-item mb-16 relative">
-            <div class="absolute -left-[42px] top-1 flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700 ring-4 ring-light dark:ring-dark">
-                <i class="fa-solid fa-terminal text-lg text-purple-500"></i>
-            </div>
-            <h3 class="text-lg font-bold text-gray-900 dark:text-white">Programmer Analyst Internship</h3>
-            <p class="font-medium text-gray-700 dark:text-gray-300">Cognizant</p>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Feb 2025 - July 2025</p>
-            <a href="https://drive.google.com/drive/folders/1CK_IigEa5FMxI-WtWlT4qkQnjQMpdCEE?usp=sharing" target="_blank" class="text-sm text-primary-DEFAULT dark:text-blue-400 hover:underline">
-                View Certificate <i class="fas fa-external-link-alt ml-1"></i>
-            </a>
-        </div>
-
-        <div class="timeline-item relative">
-            <div class="absolute -left-[42px] top-1 flex h-10 w-10 items-center justify-center rounded-full bg-slate-200 dark:bg-slate-700 ring-4 ring-light dark:ring-dark">
-                <i class="fa-solid fa-magnifying-glass-chart text-lg text-teal-500"></i>
-            </div>
-            <h3 class="text-lg font-bold text-gray-900 dark:text-white">Data Science Intern</h3>
-            <p class="font-medium text-gray-700 dark:text-gray-300">Codsoft</p>
-            <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">June 2024 - July 2024</p>
-            <a href="https://drive.google.com/file/d/1z-YOMgRQDfc73fmiRIp5xHHkBJpMwK2B/view" target="_blank" class="text-sm text-primary-DEFAULT dark:text-blue-400 hover:underline">
-                View Certificate <i class="fas fa-external-link-alt ml-1"></i>
-            </a>
-        </div>
-        
+<!-- ══════════ ABOUT ══════════ -->
+<section id="about" class="rev">
+  <div class="sec-lbl">Introduction</div>
+  <div class="sec-ttl">About Me</div>
+  <div class="about-g">
+    <div class="img-wrap rev-l">
+      <div class="img-glow"></div>
+      <img src="https://raw.githubusercontent.com/phanisrikanth9/Srikanth-s-Portfolio/main/189kb(more%20upper).png" alt="Phani Srikanth">
     </div>
+    <div class="about-text rev-r">
+      <p>I'm a Computer Science graduate from Sreenidhi Institute of Science and Technology, currently working as a <strong>Programmer Analyst Trainee at Cognizant</strong> — contributing to enterprise-level SAP projects and AI-driven systems for global clients.</p>
+      <p>My expertise spans Data Structures &amp; Algorithms, SAP HANA XSA, BW/4HANA, Python-based ML pipelines, and cloud platforms including AWS. I love turning complex data challenges into clean, efficient software solutions.</p>
+      <p>Admitted to <strong>Arizona State University</strong> for MS Computer Science starting Fall 2026 — continuing to level up every day.</p>
+      <div class="pills">
+        <span class="pill"><i class="fa-solid fa-location-dot"></i>Hyderabad, India</span>
+        <span class="pill"><i class="fa-solid fa-building"></i>Cognizant</span>
+        <span class="pill"><i class="fa-solid fa-graduation-cap"></i>B.Tech CSE · 8.25</span>
+        <span class="pill"><i class="fa-solid fa-star"></i>5-Star HackerRank</span>
+        <span class="pill"><i class="fa-solid fa-plane"></i>ASU Fall 2026</span>
+      </div>
+    </div>
+  </div>
 </section>
-                       <section id="achievements" class="reveal py-20">
-                <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">Coding Profiles</h2>
-                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-<a href="https://leetcode.com/u/phanisrikanth18/" target="_blank" class="flex items-center gap-4 p-4 bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-md hover:bg-gray-200/60 dark:hover:bg-slate-700/60 transition-colors backdrop-blur-md">
-    
-   <img src="https://drive.google.com/thumbnail?id=1UHXVpNJrgkOhl0xB7NSqPfSWaK79c0wG" alt="LeetCode Logo" class="w-6 h-6">
 
-
-    <div>
-        <h4 class="font-bold text-gray-900 dark:text-white">LeetCode</h4>
-        <p class="text-sm text-gray-600 dark:text-gray-400">200+ Problems Solved</p>
+<!-- ══════════ EXPERIENCE ══════════ -->
+<section id="experience" class="rev">
+  <div class="sec-lbl">Career</div>
+  <div class="sec-ttl">Work Experience</div>
+  <div class="tl">
+    <div class="tl-item rev">
+      <div class="tl-dot"><i class="fa-solid fa-terminal" style="color:var(--accent)"></i></div>
+      <div class="tl-card">
+        <div class="tl-role">Programmer Analyst Trainee <span class="badge-now">Current</span></div>
+        <div class="tl-co">Cognizant</div>
+        <div class="tl-date"><i class="fa-regular fa-calendar" style="margin-right:.38rem"></i>July 2025 – Present &nbsp;·&nbsp; Hyderabad, India</div>
+        <ul class="tl-desc">
+          <li>Contributing to the MDT Gemini AMS steady state project, focusing on enterprise software systems.</li>
+          <li>Involved in large-scale software development and data management using SAP HANA and BW/4HANA.</li>
+        </ul>
+        <a href="https://drive.google.com/drive/folders/1CK_IigEa5FMxI-WtWlT4qkQnjQMpdCEE?usp=sharing" target="_blank" class="tl-link">View Certificate <i class="fas fa-external-link-alt" style="font-size:.65rem"></i></a>
+      </div>
     </div>
-</a>
-                    <a href="https://www.hackerrank.com/profile/phanisrikanth65" target="_blank" class="flex items-center gap-4 p-4 bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-md hover:bg-gray-200/60 dark:hover:bg-slate-700/60 transition-colors backdrop-blur-md">
-                        <i class="fa-brands fa-hackerrank text-3xl text-green-500"></i>
-                        <div>
-                            <h4 class="font-bold text-gray-900 dark:text-white">HackerRank</h4>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">5-Star in Problem Solving</p>
-                        </div>
-                    </a>
-                    <a href="https://www.codechef.com/users/phanisrikanth9" target="_blank" class="flex items-center gap-4 p-4 bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-md hover:bg-gray-200/60 dark:hover:bg-slate-700/60 transition-colors backdrop-blur-md">
-                        <i class="fa-solid fa-code text-3xl text-orange-500"></i>
-                        <div>
-                            <h4 class="font-bold text-gray-900 dark:text-white">CodeChef</h4>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">400+ Problems Solved</p>
-                        </div>
-                    </a>
-                </div>
-            </section>
-            <section id="competitions" class="reveal py-20">
-    <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">Competitions & Hackathons</h2>
-    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-
-        <div class="competition-card reveal p-6 text-center bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-md backdrop-blur-md flex flex-col items-center">
-            <i class="fa-solid fa-trophy text-4xl text-yellow-500 mb-4"></i>
-            <h3 class="text-xl font-bold text-gray-900 dark:text-white">TURING CUP 2K24</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1 mb-4 flex-grow">National Level Coding Contest</p>
-            <a href="https://unstop.com/certificate-preview/de742e01-30a4-4029-991c-5e255ad4fa34" target="_blank" class="inline-block mt-auto bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white px-4 py-2 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-all">
-                View Certificate
-            </a>
-        </div>
-
-        <div class="competition-card reveal p-6 text-center bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-md backdrop-blur-md flex flex-col items-center">
-            <i class="fa-solid fa-keyboard text-4xl text-sky-500 mb-4"></i>
-            <h3 class="text-xl font-bold text-gray-900 dark:text-white">ACM Winter Coding Contest 4.0</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1 mb-4 flex-grow">Competitive Programming</p>
-            <a href="https://unstop.com/certificate-preview/f1468b1f-1f83-451c-a408-27b4223913b3" target="_blank" class="inline-block mt-auto bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white px-4 py-2 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-all">
-                View Certificate
-            </a>
-        </div>
-
-        <div class="competition-card reveal p-6 text-center bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-md backdrop-blur-md flex flex-col items-center">
-            <i class="fa-solid fa-people-group text-4xl text-green-500 mb-4"></i>
-            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Coign Hackathon</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1 mb-4 flex-grow">Collaborative Coding Event</p>
-            <a href="https://drive.google.com/file/d/1de_ICHYlnZTRagLVYKshvlIlixRybRUl/view" target="_blank" class="inline-block mt-auto bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white px-4 py-2 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-all">
-                View Certificate
-            </a>
-        </div>
-
-        <div class="competition-card reveal p-6 text-center bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-md backdrop-blur-md flex flex-col items-center">
-            <i class="fa-solid fa-scroll text-4xl text-rose-500 mb-4"></i>
-            <h3 class="text-xl font-bold text-gray-900 dark:text-white">NCICCN Research Paper</h3>
-            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1 mb-4 flex-grow">Research Paper Conference</p>
-            <a href="https://drive.google.com/file/d/1Pp69iiXYEx7R3_0ZT6mhI5XNJXp7TfVr/view" target="_blank" class="inline-block mt-auto bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white px-4 py-2 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-all">
-                View Certificate
-            </a>
-        </div>
-
+    <div class="tl-item rev" style="transition-delay:.1s">
+      <div class="tl-dot"><i class="fa-solid fa-code" style="color:var(--a2)"></i></div>
+      <div class="tl-card">
+        <div class="tl-role">GenC Intern (Programmer Analyst)</div>
+        <div class="tl-co">Cognizant</div>
+        <div class="tl-date"><i class="fa-regular fa-calendar" style="margin-right:.38rem"></i>Feb 2025 – July 2025 &nbsp;·&nbsp; Hyderabad, India</div>
+        <ul class="tl-desc">
+          <li>Gained hands-on experience in cloud environments and SAP ecosystem tools.</li>
+          <li>Assisted in real-world projects involving data analytics and application development.</li>
+        </ul>
+        <a href="https://drive.google.com/drive/folders/1CK_IigEa5FMxI-WtWlT4qkQnjQMpdCEE?usp=sharing" target="_blank" class="tl-link">View Certificate <i class="fas fa-external-link-alt" style="font-size:.65rem"></i></a>
+      </div>
     </div>
+</div>
 </section>
-<section id="certifications" class="reveal py-20">
-    <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">Certifications & Workshops</h2>
-    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-<a href="https://www.coursera.org/account/accomplishments/verify/NAQ8B...L" target="_blank" class="certification-card reveal flex items-start gap-4 p-4 bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-md hover:bg-gray-200/60 dark:hover:bg-slate-700/60 transition-all backdrop-blur-md">
-    
-<img src="https://drive.google.com/thumbnail?id=1XLyD1qfBKKh8pxozi_CdmVwXcPaZQPY9" alt="IBM Logo" class="w-12 h-auto mt-1 flex-shrink-0">
 
-    <div>
-        <h3 class="font-bold text-gray-900 dark:text-white">IBM Python Project for Data Science</h3>
-        <p class="text-sm text-gray-600 dark:text-gray-400">Issued by IBM on Coursera</p>
+<!-- ══════════ EDUCATION ══════════ -->
+<section id="education" class="rev">
+  <div class="sec-lbl">Background</div>
+  <div class="sec-ttl">Education</div>
+  <div class="tl">
+    <div class="tl-item rev">
+      <div class="tl-dot"><i class="fa-solid fa-university" style="color:var(--accent)"></i></div>
+      <div class="tl-card">
+        <div class="tl-role">M.S. Computer Science <span class="badge-now" style="background:rgba(129,140,248,.1);border-color:rgba(129,140,248,.28);color:var(--a2)">Upcoming</span></div>
+        <div class="tl-co" style="color:var(--a2)">Arizona State University, Tempe</div>
+        <div class="tl-date">Starting August 2026</div>
+      </div>
     </div>
-</a>
-        <a href="https://smartinterviews.in/certificate/2cedd6cf" target="_blank" class="certification-card reveal flex items-start gap-4 p-4 bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-md hover:bg-gray-200/60 dark:hover:bg-slate-700/60 transition-all backdrop-blur-md">
-            <i class="fa-solid fa-award text-3xl text-yellow-500 mt-1"></i>
-            <div>
-                <h3 class="font-bold text-gray-900 dark:text-white">Smart Coder</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">Issued by Smart Interviews</p>
-            </div>
-        </a>
-
-        <a href="https://www.udemy.com/certificate/UC-73b48e38-a68d-49ac-a6b9-3ac99256b66f/" target="_blank" class="certification-card reveal flex items-start gap-4 p-4 bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-md hover:bg-gray-200/60 dark:hover:bg-slate-700/60 transition-all backdrop-blur-md">
-            <i class="fa-solid fa-database text-3xl text-red-500 mt-1"></i>
-            <div>
-                <h3 class="font-bold text-gray-900 dark:text-white">The Complete Oracle SQL</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">Issued by Udemy</p>
-            </div>
-        </a>
-
-        <a href="https://www.udemy.com/certificate/UC-b8ce0548-9c09-4371-bcc1-83159f9dc51c/" target="_blank" class="certification-card reveal flex items-start gap-4 p-4 bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-md hover:bg-gray-200/60 dark:hover:bg-slate-700/60 transition-all backdrop-blur-md">
-            <i class="fa-solid fa-layer-group text-3xl text-orange-500 mt-1"></i>
-            <div>
-                <h3 class="font-bold text-gray-900 dark:text-white">The Complete PL/SQL Bootcamp</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">Issued by Udemy</p>
-            </div>
-        </a>
-        
-        <a href="https://www.credly.com/badges/645c7cf0-26b8-4cbb-b3a2-ed6b82c7e2eb/print" target="_blank" class="certification-card reveal flex items-start gap-4 p-4 bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-md hover:bg-gray-200/60 dark:hover:bg-slate-700/60 transition-all backdrop-blur-md">
-            <i class="fa-solid fa-user-check text-3xl text-green-500 mt-1"></i>
-            <div>
-                <h3 class="font-bold text-gray-900 dark:text-white">Pearson MePro Level 10 Expert</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">Issued by Pearson</p>
-            </div>
-        </a>
-
-        <a href="https://drive.google.com/file/d/1KqY5HRaEwx20nT1KdG1p7A_7iXFt6cmi/view" target="_blank" class="certification-card reveal flex items-start gap-4 p-4 bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-md hover:bg-gray-200/60 dark:hover:bg-slate-700/60 transition-all backdrop-blur-md">
-            <i class="fa-solid fa-flask-vial text-3xl text-teal-500 mt-1"></i>
-            <div>
-                <h3 class="font-bold text-gray-900 dark:text-white">Data Science Workshop</h3>
-                <p class="text-sm text-gray-600 dark:text-gray-400">Participation Certificate</p>
-            </div>
-        </a>
-
+    <div class="tl-item rev" style="transition-delay:.08s">
+      <div class="tl-dot"><i class="fa-solid fa-laptop-code" style="color:var(--accent)"></i></div>
+      <div class="tl-card">
+        <div class="tl-role">B.Tech — Computer Science &amp; Engineering</div>
+        <div class="tl-co">Sreenidhi Institute of Science and Technology</div>
+        <div class="tl-date">2021 – 2025 &nbsp;·&nbsp; <strong style="color:var(--text)">8.25 CGPA</strong></div>
+      </div>
     </div>
+    <div class="tl-item rev" style="transition-delay:.16s">
+      <div class="tl-dot"><i class="fa-solid fa-book-open" style="color:var(--a2)"></i></div>
+      <div class="tl-card">
+        <div class="tl-role">Intermediate (MPC)</div>
+        <div class="tl-co">Sri Chaitanya Junior Kalasala</div>
+        <div class="tl-date">2019 – 2021 &nbsp;·&nbsp; <strong style="color:var(--text)">92.4%</strong></div>
+      </div>
+    </div>
+    <div class="tl-item rev" style="transition-delay:.24s">
+      <div class="tl-dot"><i class="fa-solid fa-school" style="color:var(--a3)"></i></div>
+      <div class="tl-card">
+        <div class="tl-role">SSC</div>
+        <div class="tl-co">Dr KKR's Gowtham Concept School</div>
+        <div class="tl-date">2018 – 2019 &nbsp;·&nbsp; <strong style="color:var(--text)">9.5 GPA</strong></div>
+      </div>
+    </div>
+  </div>
 </section>
-            <section id="languages" class="reveal py-20">
-    <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">Languages</h2>
-    <div class="max-w-2xl mx-auto space-y-4">
-        
-        <div class="flex items-center gap-4 p-4 bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-sm backdrop-blur-md">
-            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-sky-100 dark:bg-sky-900 flex-shrink-0">
-                <span class="text-xl font-bold text-sky-600 dark:text-sky-400">E</span>
-            </div>
-            <div>
-                <h4 class="font-bold text-gray-900 dark:text-white">English</h4>
-                <p class="text-sm text-gray-600 dark:text-gray-400">Full Professional Proficiency</p>
-            </div>
-        </div>
 
-        <div class="flex items-center gap-4 p-4 bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-sm backdrop-blur-md">
-            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-orange-100 dark:bg-orange-900 flex-shrink-0">
-                <span class="text-2xl font-bold text-orange-600 dark:text-orange-400">త</span>
-            </div>
-            <div>
-                <h4 class="font-bold text-gray-900 dark:text-white">Telugu</h4>
-                <p class="text-sm text-gray-600 dark:text-gray-400">Native or Bilingual Proficiency</p>
-            </div>
-        </div>
-
-        <div class="flex items-center gap-4 p-4 bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-sm backdrop-blur-md">
-            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-rose-100 dark:bg-rose-900 flex-shrink-0">
-                <span class="text-2xl font-bold text-rose-600 dark:text-rose-400">ह</span>
-            </div>
-            <div>
-                <h4 class="font-bold text-gray-900 dark:text-white">Hindi</h4>
-                <p class="text-sm text-gray-600 dark:text-gray-400">Professional Working Proficiency</p>
-            </div>
-        </div>
-
-    </div>
+<!-- ══════════ SKILLS ══════════ -->
+<section id="skills" class="rev sec-ctr">
+  <div class="sec-lbl">Expertise</div>
+  <div class="sec-ttl">Technical Skills</div>
+  <div class="skills-cats" id="skills-cats"></div>
 </section>
-<section id="hobbies" class="reveal py-20">
-    <h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">Hobbies & Interests</h2>
-    <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-6 text-center">
 
-        <div class="p-6 bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-md backdrop-blur-md">
-            <i class="fa-solid fa-baseball-bat-ball text-4xl text-primary-DEFAULT mb-3"></i>
-            <h4 class="font-semibold text-gray-800 dark:text-gray-200">Cricket</h4>
-        </div>
-
-        <div class="p-6 bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-md backdrop-blur-md">
-            <i class="fa-solid fa-gamepad text-4xl text-primary-DEFAULT mb-3"></i>
-            <h4 class="font-semibold text-gray-800 dark:text-gray-200">Gaming</h4>
-        </div>
-
-        <div class="p-6 bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-md backdrop-blur-md">
-            <i class="fa-solid fa-camera-retro text-4xl text-primary-DEFAULT mb-3"></i>
-            <h4 class="font-semibold text-gray-800 dark:text-gray-200">Photography</h4>
-        </div>
-
-        <div class="p-6 bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-md backdrop-blur-md">
-            <i class="fa-solid fa-film text-4xl text-primary-DEFAULT mb-3"></i>
-            <h4 class="font-semibold text-gray-800 dark:text-gray-200">Watching Movies</h4>
-        </div>
-
-        <div class="p-6 bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-md backdrop-blur-md">
-            <i class="fa-solid fa-book-open-reader text-4xl text-primary-DEFAULT mb-3"></i>
-            <h4 class="font-semibold text-gray-800 dark:text-gray-200">Reading Books</h4>
-        </div>
-
-        <div class="p-6 bg-white/50 dark:bg-slate-800/50 rounded-lg shadow-md backdrop-blur-md">
-            <i class="fa-solid fa-music text-4xl text-primary-DEFAULT mb-3"></i>
-            <h4 class="font-semibold text-gray-800 dark:text-gray-200">Listening to Music</h4>
-        </div>
-        
+<!-- ══════════ PROJECTS ══════════ -->
+<section id="projects" class="rev">
+  <div class="sec-lbl">Work</div>
+  <div class="sec-ttl">Featured Projects</div>
+  <div class="proj-g">
+    <div class="proj-card rev-s" style="transition-delay:0s">
+      <div class="proj-img-wrap"><img src="https://raw.githubusercontent.com/phanisrikanth9/Srikanth-s-Portfolio/main/Gemini_Generated_Image_opbwz7opbwz7opbw.png" alt="Visual Privacy" class="proj-img"></div>
+      <div class="proj-body">
+        <div class="proj-ttl">Visual Privacy Risk Detection</div>
+        <div class="proj-desc">Detects sensitive content in images using MobileNetV2 and PaddleOCR — combining deep learning classification and OCR pipelines for automated privacy risk scoring.</div>
+        <div class="proj-tags"><span class="tag">Python</span><span class="tag">MobileNetV2</span><span class="tag">PaddleOCR</span><span class="tag">CNN</span><span class="tag">TensorFlow</span></div>
+        <a href="https://github.com/PHANISRIKANTH9/SENSITIVE_IMAGE_DETECTION" target="_blank" class="proj-link">GitHub <i class="fab fa-github"></i></a>
+      </div>
     </div>
+    <div class="proj-card rev-s" style="transition-delay:.1s">
+      <div class="proj-img-wrap"><img src="https://images.unsplash.com/photo-1574267432553-4b4628081c31?q=85&fm=jpg&w=600" alt="Movie Rec" class="proj-img"></div>
+      <div class="proj-body">
+        <div class="proj-ttl">Movie Recommendation System</div>
+        <div class="proj-desc">Hybrid recommender using both collaborative and content-based filtering, built with Python, Pandas, and Scikit-learn for personalised suggestions at scale.</div>
+        <div class="proj-tags"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Pandas</span><span class="tag">Numpy</span></div>
+        <a href="https://github.com/PHANISRIKANTH9/MOVIE-RECOMMENDATION-SYSTEM" target="_blank" class="proj-link">GitHub <i class="fab fa-github"></i></a>
+      </div>
+    </div>
+    <div class="proj-card rev-s" style="transition-delay:.2s">
+      <div class="proj-img-wrap"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=85&fm=jpg&w=600" alt="Stock Dashboard" class="proj-img"></div>
+      <div class="proj-body">
+        <div class="proj-ttl">Stock Performance Dashboard</div>
+        <div class="proj-desc">Interactive Plotly dashboard visualising stock market trends, scraped with BeautifulSoup and analysed with Pandas for financial pattern discovery.</div>
+        <div class="proj-tags"><span class="tag">Python</span><span class="tag">Plotly</span><span class="tag">Pandas</span><span class="tag">BeautifulSoup</span></div>
+        <a href="https://github.com/PHANISRIKANTH9/ANALYZING-STOCK-PERFORMANCE-AND-BUILDING-A-DASHBOARD" target="_blank" class="proj-link">GitHub <i class="fab fa-github"></i></a>
+      </div>
+    </div>
+    <div class="proj-card rev-s" style="transition-delay:.3s">
+      <div class="proj-ph"><i class="fa-solid fa-globe" style="font-size:2.7rem;color:var(--accent);opacity:.5;position:relative;z-index:1"></i></div>
+      <div class="proj-body">
+        <div class="proj-ttl">Personal Portfolio Website</div>
+        <div class="proj-desc">Fully responsive portfolio with particles, 3D tilt cards, magnetic buttons, typewriter effects, light/dark mode, and smooth scroll-triggered animations.</div>
+        <div class="proj-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Animations</span></div>
+        <a href="https://phanisrikanth9.github.io/Phani-Portfolio/" target="_blank" class="proj-link">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+    </div>
+  </div>
 </section>
-            <section id="contact" class="reveal py-20 text-center">
-                <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Let's Connect</h2>
-                <p class="text-gray-600 dark:text-gray-400 max-w-xl mx-auto mb-8">I'm currently seeking new opportunities. Whether you have a question or just want to say hi, feel free to reach out. I'll get back to you!</p>
-                <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-8 mb-8">
-                    <a href="mailto:phanisrikanth65@gmail.com" class="font-medium text-lg text-gray-700 dark:text-gray-300 hover:text-primary-DEFAULT dark:hover:text-blue-400 transition-colors"><i class="fa-solid fa-envelope mr-2"></i> phanisrikanth65@gmail.com</a>
-                    <a href="tel:+919381255761" class="font-medium text-lg text-gray-700 dark:text-gray-300 hover:text-primary-DEFAULT dark:hover:text-blue-400 transition-colors"><i class="fa-brands fa-phone mr-2"></i> +91 93812 55761</a>
-                </div>
-                <div class="flex justify-center gap-6">
-                    <a href="https://linkedin.com/in/phani-srikanth-samayam-70942926a" target="_blank" class="text-gray-500 dark:text-gray-400 hover:text-blue-700 dark:hover:text-blue-500 transition-transform duration-300 transform hover:scale-125 hover:-translate-y-1"><i class="fab fa-linkedin text-3xl"></i></a>
-                    <a href="https://github.com/phanisrikanth9" target="_blank" class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-transform duration-300 transform hover:scale-125 hover:-translate-y-1"><i class="fab fa-github text-3xl"></i></a>
-                    <a href="https://leetcode.com/u/phanisrikanth18/" target="_blank" class="text-gray-500 dark:text-gray-400 hover:text-yellow-500 transition-transform duration-300 transform hover:scale-125 hover:-translate-y-1"><i class="fa-solid fa-code text-3xl"></i></a>
-                </div>
-            </section>
 
-        </main>
+<!-- ══════════ CERTIFICATIONS ══════════ -->
+<section id="certifications" class="rev">
+  <div class="sec-lbl">Credentials</div>
+  <div class="sec-ttl">Certifications &amp; Badges</div>
+  <div class="certs-g">
+    <a href="https://www.credly.com/badges/0e9ba830-e341-4e90-adee-acb3f69f2e5c/public_url" target="_blank" class="cert-card rev" style="transition-delay:0s"><div class="cert-ico" style="background:rgba(255,153,0,.1);border-color:rgba(255,153,0,.2)">☁️</div><div><div class="cert-nm">AWS Cloud Architecting</div><div class="cert-by">Amazon Web Services · Credly</div></div></a>
+    <a href="https://www.credly.com/badges/fa6ac32f-8abe-4d3d-a2e2-e1219a425639/public_url" target="_blank" class="cert-card rev" style="transition-delay:.08s"><div class="cert-ico" style="background:rgba(255,153,0,.1);border-color:rgba(255,153,0,.2)">🌩️</div><div><div class="cert-nm">AWS Cloud Foundations</div><div class="cert-by">Amazon Web Services · Credly</div></div></a>
+    <a href="https://www.credly.com/badges/38eb0ed3-f3ef-49b5-94f2-fe8724701e4f/public_url" target="_blank" class="cert-card rev" style="transition-delay:.16s"><div class="cert-ico" style="background:rgba(0,84,166,.14);border-color:rgba(0,84,166,.22)">🔬</div><div><div class="cert-nm">Python Project for Data Science</div><div class="cert-by">IBM · Coursera · Credly</div></div></a>
+    <a href="https://www.credly.com/badges/645c7cf0-26b8-4cbb-b3a2-ed6b82c7e2eb/print" target="_blank" class="cert-card rev" style="transition-delay:.24s"><div class="cert-ico" style="background:rgba(59,130,246,.1);border-color:rgba(59,130,246,.2)">🎖️</div><div><div class="cert-nm">Pearson MePro Level 10 Expert</div><div class="cert-by">Pearson · C2 English Proficiency</div></div></a>
+    <a href="https://smartinterviews.in/certificate/2cedd6cf" target="_blank" class="cert-card rev" style="transition-delay:.32s"><div class="cert-ico" style="background:rgba(94,234,212,.08);border-color:rgba(94,234,212,.15)">⭐</div><div><div class="cert-nm">Smart Coder</div><div class="cert-by">Smart Interviews · DSA</div></div></a>
+    <a href="https://www.udemy.com/certificate/UC-73b48e38-a68d-49ac-a6b9-3ac99256b66f/" target="_blank" class="cert-card rev" style="transition-delay:.40s"><div class="cert-ico" style="background:rgba(236,72,153,.08);border-color:rgba(236,72,153,.15)">🗄️</div><div><div class="cert-nm">The Complete Oracle SQL</div><div class="cert-by">Udemy</div></div></a>
+    <a href="https://www.udemy.com/certificate/UC-b8ce0548-9c09-4371-bcc1-83159f9dc51c/" target="_blank" class="cert-card rev" style="transition-delay:.48s"><div class="cert-ico" style="background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.15)">📋</div><div><div class="cert-nm">The Complete PL/SQL Bootcamp</div><div class="cert-by">Udemy</div></div></a>
+    <a href="https://drive.google.com/file/d/1KqY5HRaEwx20nT1KdG1p7A_7iXFt6cmi/view" target="_blank" class="cert-card rev" style="transition-delay:.56s"><div class="cert-ico" style="background:rgba(20,184,166,.08);border-color:rgba(20,184,166,.15)">🧪</div><div><div class="cert-nm">Data Science Workshop</div><div class="cert-by">Brain O Vision</div></div></a>
+  </div>
+</section>
 
-        <footer class="bg-white/10 dark:bg-slate-900/10 border-t border-white/10 dark:border-slate-800/10 backdrop-blur-sm">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-gray-500 dark:text-gray-400 text-sm">
-                <p>&copy; 2025 Phani Srikanth Samayam. All Rights Reserved.</p>
-            </div>
-        </footer>
+<!-- ══════════ COMPETITIONS ══════════ -->
+<section id="competitions" class="rev">
+  <div class="sec-lbl">Achievements</div>
+  <div class="sec-ttl">Competitions &amp; Events</div>
+  <div class="comp-g">
+    <div class="comp-card rev-s" style="transition-delay:0s"><div class="comp-ico">🏆</div><div class="comp-nm">TURING CUP 2K24</div><div class="comp-desc">Advanced to the Semi-Finals in a national-level coding contest.</div><a href="https://unstop.com/certificate-preview/de742e01-30a4-4029-991c-5e255ad4fa34" target="_blank" class="btn-s" style="font-size:.79rem;padding:.48rem .95rem;border-radius:8px">Certificate</a></div>
+    <div class="comp-card rev-s" style="transition-delay:.1s"><div class="comp-ico">⌨️</div><div class="comp-nm">ACM Winter Coding 4.0</div><div class="comp-desc">Competed in the ACM Winter Coding Contest — competitive programming.</div><a href="https://unstop.com/certificate-preview/f1468b1f-1f83-451c-a408-27b4223913b3" target="_blank" class="btn-s" style="font-size:.79rem;padding:.48rem .95rem;border-radius:8px">Certificate</a></div>
+    <div class="comp-card rev-s" style="transition-delay:.2s"><div class="comp-ico">🤝</div><div class="comp-nm">Coign Hackathon</div><div class="comp-desc">Participated in a collaborative coding hackathon challenge.</div><a href="https://drive.google.com/file/d/1de_ICHYlnZTRagLVYKshvlIlixRybRUl/view" target="_blank" class="btn-s" style="font-size:.79rem;padding:.48rem .95rem;border-radius:8px">Certificate</a></div>
+    <div class="comp-card rev-s" style="transition-delay:.3s"><div class="comp-ico">📝</div><div class="comp-nm">NCICCN Research Paper</div><div class="comp-desc">Presented a research paper at the NCICCN Research Conference.</div><a href="https://drive.google.com/file/d/1Pp69iiXYEx7R3_0ZT6mhI5XNJXp7TfVr/view" target="_blank" class="btn-s" style="font-size:.79rem;padding:.48rem .95rem;border-radius:8px">Certificate</a></div>
+  </div>
+</section>
+
+<!-- ══════════ CODING PROFILES ══════════ -->
+<section id="profiles" class="rev sec-ctr">
+  <div class="sec-lbl">Online Presence</div>
+  <div class="sec-ttl">Coding Profiles</div>
+  <div class="profs-g">
+    <a href="https://leetcode.com/u/phanisrikanth18/" target="_blank" class="prof-card"><div style="font-size:1.5rem">🟨</div><div><div class="p-nm">LeetCode</div><div class="p-st">200+ Solved</div></div></a>
+    <a href="https://www.hackerrank.com/profile/phanisrikanth65" target="_blank" class="prof-card"><div style="font-size:1.5rem">🟩</div><div><div class="p-nm">HackerRank</div><div class="p-st">5-Star ⭐ Problem Solving</div></div></a>
+    <a href="https://www.codechef.com/users/phanisrikanth9" target="_blank" class="prof-card"><div style="font-size:1.5rem">🟧</div><div><div class="p-nm">CodeChef</div><div class="p-st">400+ Solved</div></div></a>
+  </div>
+</section>
+
+<!-- ══════════ LANGUAGES ══════════ -->
+<section id="languages" class="rev sec-ctr">
+  <div class="sec-lbl">Communication</div>
+  <div class="sec-ttl">Languages</div>
+  <div class="lang-list">
+    <div class="lang-item rev" style="transition-delay:0s"><div class="lang-ico" style="background:rgba(14,165,233,.1);color:#38bdf8">E</div><div><div class="lang-nm">English</div><div class="lang-lv">Full Professional Proficiency · Pearson C2 Level 10</div></div></div>
+    <div class="lang-item rev" style="transition-delay:.1s"><div class="lang-ico" style="background:rgba(249,115,22,.1);color:#fb923c">త</div><div><div class="lang-nm">Telugu</div><div class="lang-lv">Native / Bilingual Proficiency</div></div></div>
+    <div class="lang-item rev" style="transition-delay:.2s"><div class="lang-ico" style="background:rgba(236,72,153,.1);color:#f472b6">ह</div><div><div class="lang-nm">Hindi</div><div class="lang-lv">Professional Working Proficiency</div></div></div>
+  </div>
+</section>
+
+<!-- ══════════ HOBBIES ══════════ -->
+<section id="hobbies" class="rev sec-ctr">
+  <div class="sec-lbl">Beyond Code</div>
+  <div class="sec-ttl">Hobbies &amp; Interests</div>
+  <div class="hob-g">
+    <div class="hob rev-s" style="transition-delay:0s"><div class="hob-ico">🏏</div><div class="hob-n">Cricket</div></div>
+    <div class="hob rev-s" style="transition-delay:.06s"><div class="hob-ico">🎮</div><div class="hob-n">Gaming</div></div>
+    <div class="hob rev-s" style="transition-delay:.12s"><div class="hob-ico">📷</div><div class="hob-n">Photography</div></div>
+    <div class="hob rev-s" style="transition-delay:.18s"><div class="hob-ico">🎬</div><div class="hob-n">Movies</div></div>
+    <div class="hob rev-s" style="transition-delay:.24s"><div class="hob-ico">📚</div><div class="hob-n">Reading</div></div>
+    <div class="hob rev-s" style="transition-delay:.30s"><div class="hob-ico">🎵</div><div class="hob-n">Music</div></div>
+  </div>
+</section>
+
+<!-- ══════════ CONTACT ══════════ -->
+<section id="contact" class="rev">
+  <div class="contact-in sec-ctr">
+    <div class="sec-lbl">Let's Talk</div>
+    <div class="sec-ttl">Get in Touch</div>
+    <p class="sec-sub">Currently seeking new opportunities. Whether you have a question, a project, or just want to say hi — I'll get back to you!</p>
+    <div class="c-links">
+      <a href="mailto:phanisrikanth65@gmail.com" class="c-link"><i class="fa-solid fa-envelope"></i>phanisrikanth65@gmail.com</a>
+      <a href="tel:+919381255761" class="c-link"><i class="fa-solid fa-phone"></i>+91 93812 55761</a>
     </div>
-    
-    <button id="to-top-button" class="hidden fixed bottom-8 right-8 bg-primary-DEFAULT text-white w-12 h-12 rounded-full shadow-lg hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-DEFAULT dark:ring-offset-dark transition-all duration-300 transform scale-0">
-        <i class="fa-solid fa-arrow-up text-lg"></i>
-    </button>
+    <div class="socials">
+      <a href="https://linkedin.com/in/phani-srikanth-samayam-70942926a" target="_blank" class="soc" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/phanisrikanth9" target="_blank" class="soc" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://leetcode.com/u/phanisrikanth18/" target="_blank" class="soc" title="LeetCode"><i class="fa-solid fa-code"></i></a>
+      <a href="mailto:phanisrikanth65@gmail.com" class="soc" title="Email"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+  </div>
+</section>
 
+</main>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
+<footer>
+  <p>© 2025 Phani Srikanth Samayam &nbsp;·&nbsp; Built with ❤️ in Hyderabad &nbsp;·&nbsp; <a href="https://github.com/phanisrikanth9" target="_blank">GitHub</a></p>
+</footer>
 
-        // --- Staggered Skills Animation ---
-        const skills = ['SAP HANA XSA','SAP BW/4HANA','Python', 'Java', 'C++', 'JavaScript', 'HTML5', 'CSS3', 'SQL', 'Data Structures & Algorithms', 'Machine Learning', 'Data Science', 'Problem Solving', 'Git & GitHub', 'Operating Systems', 'Computer Networks', 'DBMS'];
-        const skillsContainer = document.getElementById('skills-container');
-        skills.forEach((skill, index) => {
-            const skillPill = document.createElement('div');
-            skillPill.className = 'reveal bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-110 hover:bg-blue-500 hover:text-white dark:hover:bg-blue-500 cursor-default shadow';
-            skillPill.textContent = skill;
-            skillPill.style.transitionDelay = `${index * 50}ms`; // Stagger delay
-            skillsContainer.appendChild(skillPill);
-        });
-             const competitionCards = document.querySelectorAll('.competition-card');
-        if (competitionCards.length > 0) {
-            competitionCards.forEach((card, index) => {
-                card.style.transitionDelay = `${index * 100}ms`;
-            });
-        }
-                //  certification cards
-        const certificationCards = document.querySelectorAll('.certification-card');
-        if (certificationCards.length > 0) {
-            certificationCards.forEach((card, index) => {
-                card.style.transitionDelay = `${index * 100}ms`;
-            });
-        }
-        // --- Cursor Spotlight ---
-        const spotlight = document.getElementById('cursor-spotlight');
-        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-        if (!isTouchDevice) {
-            window.addEventListener('mousemove', (e) => {
-                spotlight.style.left = e.pageX + 'px';
-                spotlight.style.top = e.pageY + 'px';
-            });
-        }
-          // --- Mobile Menu Toggle ---
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        if (mobileMenuButton) {
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
-        }
-        
-        // --- Dark Mode for Mobile ---
-        const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
-        if (themeToggleMobileBtn) {
-            themeToggleMobileBtn.addEventListener('click', () => {
-                const event = new MouseEvent('click', {
-                    bubbles: true,
-                    cancelable: true,
-                    view: window
-                });
-                document.getElementById('theme-toggle').dispatchEvent(event);
-            });
-        }
-          // --- Dropdown Menu Toggle ---
-    const menuButton = document.getElementById('menu-button');
-    const menuDropdown = document.getElementById('menu-dropdown');
-    
-    if (menuButton) {
-        // Toggle dropdown on button click
-        menuButton.addEventListener('click', (event) => {
-            menuDropdown.classList.toggle('hidden');
-            event.stopPropagation(); // Prevents the window click event from firing immediately
-        });
+<button id="btt" title="Back to top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
 
-        // Close dropdown when a link inside it is clicked
-        menuDropdown.addEventListener('click', () => {
-            menuDropdown.classList.add('hidden');
-        });
+<script>
+(function(){
+'use strict';
+
+/* ── THEME ── */
+var root=document.documentElement;
+var tbtn=document.getElementById('theme-btn');
+var savedTheme=localStorage.getItem('theme')||'dark';
+root.setAttribute('data-theme',savedTheme);
+tbtn.textContent=savedTheme==='dark'?'🌙':'☀️';
+
+tbtn.addEventListener('click',function(){
+  var cur=root.getAttribute('data-theme');
+  var next=cur==='dark'?'light':'dark';
+  root.setAttribute('data-theme',next);
+  tbtn.textContent=next==='dark'?'🌙':'☀️';
+  localStorage.setItem('theme',next);
+  // Update canvas particle color
+  updateParticleColor(next);
+});
+
+/* ── CURSOR ── */
+var cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
+var mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function animR(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animR);})();
+document.addEventListener('mousedown',function(){cur.style.transform='translate(-50%,-50%) scale(1.8)';});
+document.addEventListener('mouseup',function(){cur.style.transform='translate(-50%,-50%) scale(1)';});
+
+/* ── SCROLL PROGRESS ── */
+var prog=document.getElementById('prog');
+window.addEventListener('scroll',function(){
+  var p=window.scrollY/(document.body.scrollHeight-window.innerHeight);
+  prog.style.width=(p*100)+'%';
+},{passive:true});
+
+/* ── PARTICLES ── */
+var cnv=document.getElementById('cnv'),ctx=cnv.getContext('2d');
+var W,H,pts=[],particleRGB='94,234,212';
+function updateParticleColor(theme){particleRGB=theme==='light'?'13,148,136':'94,234,212';}
+function resize(){W=cnv.width=window.innerWidth;H=cnv.height=window.innerHeight;}
+resize();window.addEventListener('resize',resize);
+function mkP(){return{x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.1+.3,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,a:Math.random(),da:(Math.random()-.5)*.004};}
+for(var i=0;i<72;i++)pts.push(mkP());
+function drawP(){
+  ctx.clearRect(0,0,W,H);
+  for(var i=0;i<pts.length;i++){
+    var p=pts[i];p.x+=p.vx;p.y+=p.vy;p.a+=p.da;
+    if(p.a<=0||p.a>=1)p.da*=-1;
+    if(p.x<0||p.x>W||p.y<0||p.y>H)Object.assign(p,mkP());
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle='rgba('+particleRGB+','+(p.a*.52)+')';ctx.fill();
+    for(var j=i+1;j<pts.length;j++){
+      var dx=p.x-pts[j].x,dy=p.y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<85){ctx.beginPath();ctx.strokeStyle='rgba('+particleRGB+','+((1-d/85)*.065)+')';ctx.lineWidth=.5;ctx.moveTo(p.x,p.y);ctx.lineTo(pts[j].x,pts[j].y);ctx.stroke();}
     }
+  }
+  requestAnimationFrame(drawP);
+}
+drawP();
 
-    // Close dropdown if clicked outside
-    window.addEventListener('click', (event) => {
-        if (menuDropdown && !menuDropdown.classList.contains('hidden') && !menuButton.contains(event.target)) {
-            menuDropdown.classList.add('hidden');
-        }
-    });
-        // --- Dark Mode ---
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const darkIcon = document.getElementById('theme-toggle-dark-icon');
-        const lightIcon = document.getElementById('theme-toggle-light-icon');
+/* ── MOBILE MENU ── */
+var mb=document.getElementById('mob-btn'),md=document.getElementById('mob-drop');
+mb.addEventListener('click',function(e){e.stopPropagation();md.classList.toggle('open');});
+md.addEventListener('click',function(){md.classList.remove('open');});
+window.addEventListener('click',function(){md.classList.remove('open');});
 
-        const applyTheme = (theme) => {
-            if (theme === 'dark') {
-                document.documentElement.classList.add('dark');
-                lightIcon.classList.remove('hidden');
-                darkIcon.classList.add('hidden');
-            } else {
-                document.documentElement.classList.remove('dark');
-                darkIcon.classList.remove('hidden');
-                lightIcon.classList.add('hidden');
-            }
-        };
+/* ── ACTIVE NAV ── */
+var sections=document.querySelectorAll('section[id]');
+var navAs=document.querySelectorAll('.nav-a');
+window.addEventListener('scroll',function(){
+  var sy=window.scrollY+100;
+  sections.forEach(function(s){
+    if(sy>=s.offsetTop&&sy<s.offsetTop+s.offsetHeight){
+      navAs.forEach(function(a){
+        a.classList.toggle('active',a.getAttribute('href')==='#'+s.id);
+      });
+    }
+  });
+},{passive:true});
 
-        const currentTheme = localStorage.getItem('color-theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        applyTheme(currentTheme);
+/* ── SKILLS ── */
+var skillCats=[
+  {label:'Core Languages',skills:[{l:'Java',hi:true},{l:'Python',hi:true},{l:'C/C++'},{l:'JavaScript'},{l:'SQL & PL/SQL'}]},
+  {label:'SAP Ecosystem',skills:[{l:'SAP HANA XSA',hi:true},{l:'SAP BW/4HANA',hi:true},{l:'SAP Cloud'},{l:'ABAP'}]},
+  {label:'AI / Data Science',skills:[{l:'Machine Learning',hi:true},{l:'Data Science',hi:true},{l:'TensorFlow'},{l:'Scikit-learn'},{l:'Pandas'},{l:'NumPy'},{l:'Data Analysis'}]},
+  {label:'Cloud & Tools',skills:[{l:'AWS Cloud',hi:true},{l:'Git & GitHub'},{l:'HTML & CSS'},{l:'DBMS'},{l:'Operating Systems'},{l:'Computer Networks'}]},
+];
+var sc=document.getElementById('skills-cats');
+skillCats.forEach(function(cat){
+  var wrap=document.createElement('div');
+  var lbl=document.createElement('div');lbl.className='skill-cat-label';lbl.textContent=cat.label;
+  var row=document.createElement('div');row.className='skill-row';
+  cat.skills.forEach(function(s){
+    var el=document.createElement('span');
+    el.className='sk'+(s.hi?' hi':'');
+    el.textContent=s.l;row.appendChild(el);
+  });
+  wrap.appendChild(lbl);wrap.appendChild(row);sc.appendChild(wrap);
+});
 
-        themeToggleBtn.addEventListener('click', () => {
-            const newTheme = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
-            localStorage.setItem('color-theme', newTheme);
-            applyTheme(newTheme);
-        });
+/* ── SCROLL REVEAL ── */
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      e.target.classList.add('on');
+      if(e.target.id==='skills'){
+        var all=document.querySelectorAll('.sk');
+        all.forEach(function(t,i){setTimeout(function(){t.classList.add('on');},i*35);});
+      }
+    }
+  });
+},{threshold:0.07});
+document.querySelectorAll('.rev,.rev-l,.rev-r,.rev-s').forEach(function(el){obs.observe(el);});
+var sk=document.getElementById('skills');if(sk)obs.observe(sk);
 
-        // --- Scroll Reveal ---
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+/* ── COUNTER ── */
+function counter(el){
+  var target=parseInt(el.dataset.target),dec=el.dataset.dec?parseInt(el.dataset.dec):0;
+  var dur=1600,step=13,n=Math.ceil(dur/step),c2=0,inc=target/n;
+  var t=setInterval(function(){
+    c2=Math.min(c2+inc,target);
+    if(dec===2)el.textContent=(c2/100).toFixed(2);
+    else el.textContent=Math.floor(c2)+(c2>=target?'+':'');
+    if(c2>=target)clearInterval(t);
+  },step);
+}
+var cObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.querySelectorAll('[data-target]').forEach(counter);cObs.unobserve(e.target);}});
+},{threshold:.5});
+var hs=document.querySelector('.hero-stats');if(hs)cObs.observe(hs);
 
-        // --- Typing Animation ---
-        const subtitle = document.getElementById('subtitle');
-        const textToType = subtitle.textContent.trim();
-        subtitle.innerHTML = '';
-        let i = 0;
-        function typeWriter() {
-            if (i < textToType.length) {
-                subtitle.innerHTML = textToType.substring(0, i + 1) + '<span class="typing-cursor"></span>';
-                i++;
-                setTimeout(typeWriter, 100);
-            } else {
-                subtitle.querySelector('.typing-cursor').style.animation = 'blink 1s infinite';
-            }
-        }
-        if (textToType) typeWriter();
+/* ── TYPEWRITER ── */
+var roles=['Programmer Analyst @ Cognizant','Software Engineer','Data Engineer','B.Tech CSE Graduate','Lifelong Learner'];
+var ti=0,ci=0,del=false,tw=document.getElementById('typewriter');
+function type(){
+  var word=roles[ti];
+  if(!del){
+    tw.textContent=word.slice(0,ci+1);ci++;
+    if(ci===word.length){del=true;setTimeout(type,1800);return;}
+  } else {
+    tw.textContent=word.slice(0,ci-1);ci--;
+    if(ci===0){del=false;ti=(ti+1)%roles.length;setTimeout(type,400);return;}
+  }
+  setTimeout(type,del?55:95);
+}
+setTimeout(type,2700);
 
-        // --- Back to Top Button ---
-        const toTopButton = document.getElementById('to-top-button');
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                toTopButton.classList.remove('hidden', 'scale-0');
-                toTopButton.classList.add('scale-100');
-            } else {
-                toTopButton.classList.add('scale-0');
-                setTimeout(() => toTopButton.classList.add('hidden'), 300);
-            }
-        });
-        toTopButton.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+/* ── 3D TILT ── */
+document.querySelectorAll('.proj-card').forEach(function(c){
+  c.addEventListener('mousemove',function(e){
+    var r=c.getBoundingClientRect();
+    var x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    c.style.transform='perspective(900px) rotateY('+(x*7)+'deg) rotateX('+(-y*4.5)+'deg) translateY(-4px)';
+  });
+  c.addEventListener('mouseleave',function(){c.style.transform='';});
+});
 
-        // --- Active Nav Highlighting ---
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('nav a');
-        const navObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    const id = entry.target.getAttribute('id');
-                    navLinks.forEach(link => {
-                        link.classList.remove('nav-active');
-                        if(link.getAttribute('href') === `#${id}`) link.classList.add('nav-active');
-                    });
-                }
-            });
-        }, { rootMargin: '-30% 0px -70% 0px' });
-        sections.forEach(section => navObserver.observe(section));
-    });
-    </script>
+/* ── MAGNETIC BUTTONS ── */
+document.querySelectorAll('.btn-p').forEach(function(b){
+  b.addEventListener('mousemove',function(e){
+    var r=b.getBoundingClientRect();
+    var x=(e.clientX-r.left-r.width/2)*.28,y=(e.clientY-r.top-r.height/2)*.28;
+    b.style.transform='translate('+x+'px,'+y+'px) translateY(-3px)';
+  });
+  b.addEventListener('mouseleave',function(){b.style.transform='';});
+});
+
+/* ── BACK TO TOP ── */
+var btt=document.getElementById('btt');
+window.addEventListener('scroll',function(){btt.classList.toggle('show',window.scrollY>400);},{passive:true});
+btt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+
+})();
+</script>
 </body>
-
 </html>
-
-
