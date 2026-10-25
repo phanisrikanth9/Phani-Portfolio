@@ -512,7 +512,25 @@ footer a:hover{color:var(--accent);}
   <div class="sec-ttl">Featured Projects</div>
   <div class="proj-g">
     <div class="proj-card rev-s" style="transition-delay:0s">
-      <div class="proj-img-wrap"><img src="assets/privacy-project.jpg" alt="Visual Privacy Risk Detector" class="proj-img"></div>
+      <div class="proj-img-wrap"><img src="assets/family-safe-project.jpg" alt="Family Safe Player reviewing flagged scenes" class="proj-img" loading="lazy"></div>
+      <div class="proj-body">
+        <div class="proj-ttl">Family Safe Player</div>
+        <div class="proj-desc">Watch movies with family and skip nudity and sex scenes. A MobileNetV2 classifier scans the film in a Web Worker in your browser, hysteresis thresholds turn frame scores into scenes, and a frame-accurate player skips or mutes them. Subtitles mute swearing; a Chrome extension applies skip lists on Netflix and YouTube.</div>
+        <div class="proj-tags"><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">TensorFlow.js</span><span class="tag">Web Workers</span><span class="tag">Chrome Extension</span></div>
+        <div class="proj-links"><a href="https://phanisrikanth9.github.io/family-safe-player/" target="_blank" class="proj-link">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a> <a href="https://github.com/phanisrikanth9/family-safe-player" target="_blank" class="proj-link">GitHub <i class="fab fa-github"></i></a></div>
+      </div>
+    </div>
+    <div class="proj-card rev-s" style="transition-delay:0.1s">
+      <div class="proj-img-wrap"><img src="assets/stock-project.jpg" alt="Stock pipeline dashboard" class="proj-img" loading="lazy"></div>
+      <div class="proj-body">
+        <div class="proj-ttl">Stock Performance Data Pipeline</div>
+        <div class="proj-desc">Tested ELT pipeline for Tesla, Amazon, AMD and GameStop vs the S&amp;P 500: incremental, restatement-safe ingestion into Parquet, dbt models on DuckDB, 30 data tests that block bad publishes, and a SQL console that queries the warehouse in your browser. Runs every trading day on GitHub Actions.</div>
+        <div class="proj-tags"><span class="tag">Python</span><span class="tag">dbt</span><span class="tag">DuckDB</span><span class="tag">SQL</span><span class="tag">GitHub Actions</span></div>
+        <div class="proj-links"><a href="https://phanisrikanth9.github.io/Analyzing-Stock-Performance-and-Building-a-Dashboard/" target="_blank" class="proj-link">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a> <a href="https://github.com/phanisrikanth9/Analyzing-Stock-Performance-and-Building-a-Dashboard" target="_blank" class="proj-link">GitHub <i class="fab fa-github"></i></a></div>
+      </div>
+    </div>
+    <div class="proj-card rev-s" style="transition-delay:0.2s">
+      <div class="proj-img-wrap"><img src="assets/privacy-project.jpg" alt="Visual Privacy Risk Detector" class="proj-img" loading="lazy"></div>
       <div class="proj-body">
         <div class="proj-ttl">Visual Privacy Risk Detection</div>
         <div class="proj-desc">Finds card numbers, Aadhaar, PAN, SSN, phone numbers and passwords in images and blacks them out. Combines a fine-tuned MobileNetV2, OCR, checksum-validated rules and a text classifier. Runs fully in the browser.</div>
@@ -520,32 +538,15 @@ footer a:hover{color:var(--accent);}
         <div class="proj-links"><a href="https://phanisrikanth9.github.io/sensitive_image_detection/" target="_blank" class="proj-link">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a> <a href="https://github.com/phanisrikanth9/sensitive_image_detection" target="_blank" class="proj-link">GitHub <i class="fab fa-github"></i></a></div>
       </div>
     </div>
-    <div class="proj-card rev-s" style="transition-delay:.1s">
+    <div class="proj-card rev-s" style="transition-delay:0.3s">
       <div class="proj-img-wrap"><img src="assets/movie-project.jpg" alt="Movie recommender showing films similar to Inception" class="proj-img" loading="lazy"></div>
       <div class="proj-body">
         <div class="proj-ttl">Movie Recommendation System</div>
-        <div class="proj-desc">Content-based recommender over 4,800 TMDB movies: plot, genres, keywords, cast and director become bag-of-words vectors, ranked by cosine similarity. Try it in the browser.</div>
-        <div class="proj-tags"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">NLP</span><span class="tag">Streamlit</span></div>
+        <div class="proj-desc">Content-based recommender over 4,800 TMDB movies with explained picks. Weighted TF-IDF over genres, director, cast, keywords and plot, cosine similarity, and a vote-weighted quality re-rank. Same-director matches in the top 10 went from 15% to 82%.</div>
+        <div class="proj-tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">TF-IDF</span><span class="tag">NLP</span><span class="tag">Streamlit</span></div>
         <div class="proj-links"><a href="https://phanisrikanth9.github.io/Movie-Recommendation-System/" target="_blank" class="proj-link">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a> <a href="https://github.com/phanisrikanth9/Movie-Recommendation-System" target="_blank" class="proj-link">GitHub <i class="fab fa-github"></i></a></div>
       </div>
     </div>
-    <div class="proj-card rev-s" style="transition-delay:.2s">
-      <div class="proj-img-wrap"><img src="assets/stock-project.jpg" alt="Stock dashboard performance chart" class="proj-img" loading="lazy"></div>
-      <div class="proj-body">
-        <div class="proj-ttl">Stock Performance Dashboard</div>
-        <div class="proj-desc">Self-updating dashboard for Tesla, Amazon, AMD and GameStop: returns, moving averages, drawdowns, revenue and correlation. A GitHub Action rebuilds it with fresh data every trading day.</div>
-        <div class="proj-tags"><span class="tag">Python</span><span class="tag">Plotly</span><span class="tag">Pandas</span><span class="tag">GitHub Actions</span></div>
-        <div class="proj-links"><a href="https://phanisrikanth9.github.io/Analyzing-Stock-Performance-and-Building-a-Dashboard/" target="_blank" class="proj-link">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a> <a href="https://github.com/phanisrikanth9/Analyzing-Stock-Performance-and-Building-a-Dashboard" target="_blank" class="proj-link">GitHub <i class="fab fa-github"></i></a></div>
-      </div>
-    </div>
-    <div class="proj-card rev-s" style="transition-delay:.3s">
-      <div class="proj-ph"><i class="fa-solid fa-globe" style="font-size:2.7rem;color:var(--accent);opacity:.5;position:relative;z-index:1"></i></div>
-      <div class="proj-body">
-        <div class="proj-ttl">Personal Portfolio Website</div>
-        <div class="proj-desc">Fully responsive portfolio with particles, 3D tilt cards, magnetic buttons, typewriter effects, light/dark mode, and smooth scroll-triggered animations.</div>
-        <div class="proj-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Animations</span></div>
-        <a href="https://phanisrikanth9.github.io/Phani-Portfolio/" target="_blank" class="proj-link">Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-      </div>
     </div>
   </div>
 </section>
